@@ -1,21 +1,12 @@
 const app = {
 
-    // Récupération du canvas
     canvas: document.getElementById('canvas'),
     ctx: canvas.getContext('2d'),
-
-    // Récuperation de la taille du canvas
     heightCanvas: canvas.height,
     widthCanvas: canvas.width,
-
-    // Taille des grilles canvas
     numberColumn: 3,
     numberLine: 3,
-
-    // Choix du nombre de victoire
     numberStrokeVictory: 3,
-
-    // Propriétés du jeu
     game: true,
     currentUser: true,
     strokes: [],
@@ -23,11 +14,25 @@ const app = {
     init: function() {
         app.drawingCanvas();
         app.canvas.addEventListener('click', app.play, false);
+
+        let buttonReset = document.getElementById('reset');
+        buttonReset.addEventListener('click', app.reset);
     },
 
-    /**
-     * Mise en forme du canvas
-     */
+    reset: function() {
+        app.ctx.clearRect(0, 0, app.widthCanvas, app.heightCanvas);
+        app.strokes = [];
+        app.game = true;
+
+        if (app.currentUser) {
+            document.getElementById('user').innerHTML = 'Joueur : croix';
+        } else {
+            document.getElementById('user').innerHTML = 'Joueur : rond';
+        }
+
+        app.init();
+    },
+
     drawingCanvas: function() {
         const widthColumn = app.widthCanvas / app.numberColumn;
         const heightLine = app.heightCanvas / app.numberLine;
@@ -62,12 +67,7 @@ const app = {
         app.ctx.closePath();
     },
 
-    /**
-     * Créer une croix
-     */
-    createCross: function(middleY, middleX) {
-        const widthColumn = app.widthCanvas / app.numberColumn;
-        const heightLine = app.heightCanvas / app.numberLine;
+    createCross: function(middleY, middleX, widthColumn, heightLine) {
         const ratioCross = 0.7;
         const thicknessCross = 10;
         const colorCross = 'rgba(255, 255, 255, 0.3)';
@@ -83,12 +83,7 @@ const app = {
         app.ctx.closePath();
     },
 
-    /**
-     * Créer un cercle
-     */
-    createCircle: function(middleY, middleX) {
-        const widthColumn = app.widthCanvas / app.numberColumn;
-        const heightLine = app.heightCanvas / app.numberLine;
+    createCircle: function(middleY, middleX, widthColumn, heightLine) {
         const ratioCircle = 0.7;
         const thicknessCircle = 10;
         const colorCircle = 'rgba(255, 255, 255, 0.4)';
@@ -108,9 +103,6 @@ const app = {
         app.ctx.stroke();
     },
 
-    /**
-     * Déroulement du jeu
-     */
     play: function(event) {
         let x = event.clientX - app.canvas.offsetLeft;
         let y = event.clientY - app.canvas.offsetTop + document.documentElement.scrollTop;
@@ -130,14 +122,14 @@ const app = {
 
                 if (app.currentUser) {
 
-                    app.createCross(middleY, middleX);
+                    app.createCross(middleY, middleX, widthColumn, heightLine);
                     app.strokes[caseY][caseX] = 'croix';
                     var symbol = 'croix';
-                    document.getElementById('user').innerHTML = 'Joueur : Cercle';
+                    document.getElementById('user').innerHTML = 'Joueur : rond';
 
                 } else {
 
-                    app.createCircle(middleY, middleX);
+                    app.createCircle(middleY, middleX, widthColumn, heightLine);
                     app.strokes[caseY][caseX] = 'cercle';
                     var symbol = 'cercle';
                     document.getElementById('user').innerHTML = 'Joueur : Croix';
@@ -149,7 +141,7 @@ const app = {
 
                     if (app.currentUser) {
 
-                        document.getElementById('user').innerHTML = 'Victoire du cercle';
+                        document.getElementById('user').innerHTML = 'Victoire du rond';
                         app.game = false;
 
                     } else {
@@ -169,9 +161,6 @@ const app = {
         }
     },
 
-    /**
-     * Vérification si il y a un gagnant
-     */
     gain: function(symbol, caseY, caseX) {
         let numberSymbol = 0;
 
@@ -272,9 +261,6 @@ const app = {
         return false;
     },
 
-    /**
-     * Vérification de fin du jeu
-     */
     end: function() {
         for (let i = 0; i < app.numberLine; i++) {
 
