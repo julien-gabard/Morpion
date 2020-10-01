@@ -1,0 +1,42 @@
+@font-face {
+    font-family: "Chalk";
+    src: url("../font/ColoredCrayons.ttf");
+}
+
+body {
+    background-image: url(../images/tableau.jpeg);
+    margin: 0;
+}
+
+#titleGame {
+    font-family: 'chalk', serif;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 4rem;
+    letter-spacing: 8px;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#canvas {
+    display: block;
+    margin: 5em auto 3em auto;
+}
+
+#play {
+    display: block;
+    margin: auto;
+    font-family: 'chalk', serif;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.6);
+    background: none;
+    border: none;
+}
+
+#user {
+    font-family: 'chalk', serif;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 2rem;
+    letter-spacing: 8px;
+    text-align: center;
+    margin: 0;
+}

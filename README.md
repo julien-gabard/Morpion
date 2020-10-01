@@ -1,2 +1,2 @@
 # morpion
-Jeu du morpion développer en javaScript
+Jeu du morpion développer en full javaScript
