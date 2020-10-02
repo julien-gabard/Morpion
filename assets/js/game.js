@@ -130,9 +130,9 @@ const app = {
                 } else {
 
                     app.createCircle(middleY, middleX, widthColumn, heightLine);
-                    app.strokes[caseY][caseX] = 'cercle';
-                    var symbol = 'cercle';
-                    document.getElementById('user').innerHTML = 'Joueur : Croix';
+                    app.strokes[caseY][caseX] = 'rond';
+                    var symbol = 'rond';
+                    document.getElementById('user').innerHTML = 'Joueur : croix';
                 }
 
                 app.currentUser = !app.currentUser;
@@ -159,6 +159,8 @@ const app = {
                 }
             }
         }
+
+        ia.init();
     },
 
     gain: function(symbol, caseY, caseX) {
