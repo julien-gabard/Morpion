@@ -30,7 +30,7 @@ const iaCircle = {
              app.strokes[1][0] === 'croix' || app.strokes[1][2] === 'croix' || app.strokes[2][0] === 'croix' ||
              app.strokes[2][1] === 'croix' || app.strokes[2][2] === 'croix') {
 
-                app.createCircle(...ia.case5);
+                app.createCircle(...iaCircle.case5);
                 app.strokes[1][1] = 'rond';
                 iaCircle.userChoise.innerHTML = 'joueur : croix';
                 app.currentUser = true;
@@ -39,7 +39,7 @@ const iaCircle = {
     
             } else if (app.strokes[1][1] === 'croix') {
 
-                app.createCircle(...ia.case1);
+                app.createCircle(...iaCircle.case1);
                 app.strokes[0][0] = 'rond';
                 iaCircle.userChoise.innerHTML = 'joueur : croix';
                 app.currentUser = true;
@@ -55,7 +55,7 @@ const iaCircle = {
         if (iaCircle.secondeShot && iaCircle.firstCenter) {
             if (app.strokes[0][1] === 'croix') {
 
-                app.createCircle(...ia.case8);
+                app.createCircle(...iaCircle.case8);
                 app.strokes[2][1] = 'rond';
                 iaCircle.userChoise.innerHTML = 'joueur : croix';
                 app.currentUser = true;
@@ -63,7 +63,7 @@ const iaCircle = {
 
             } else if (app.strokes[0][2] === 'croix') {
 
-                app.createCircle(...ia.case7);
+                app.createCircle(...iaCircle.case7);
                 app.strokes[2][0] = 'rond';
                 iaCircle.userChoise.innerHTML = 'joueur : croix';
                 app.currentUser = true;
@@ -71,7 +71,7 @@ const iaCircle = {
 
             } else if (app.strokes[1][2] === 'croix') {
 
-                app.createCircle(...ia.case4);
+                app.createCircle(...iaCircle.case4);
                 app.strokes[1][0] = 'rond';
                 iaCircle.userChoise.innerHTML = 'joueur : croix';
                 app.currentUser = true;
@@ -79,7 +79,7 @@ const iaCircle = {
 
             } else if (app.strokes[2][2] === 'croix') {
 
-                app.createCircle(...ia.case7);
+                app.createCircle(...iaCircle.case7);
                 app.strokes[2][0] = 'rond';
                 iaCircle.userChoise.innerHTML = 'joueur : croix';
                 app.currentUser = true;
@@ -87,7 +87,7 @@ const iaCircle = {
 
             } else if (app.strokes[2][1] === 'croix') {
 
-                app.createCircle(...ia.case2);
+                app.createCircle(...iaCircle.case2);
                 app.strokes[1][1] = 'rond';
                 iaCircle.userChoise.innerHTML = 'joueur : croix';
                 app.currentUser = true;
@@ -95,7 +95,7 @@ const iaCircle = {
 
             } else if (app.strokes[2][0] === 'croix') {
 
-                app.createCircle(...ia.case3);
+                app.createCircle(...iaCircle.case3);
                 app.strokes[0][2] = 'rond';
                 iaCircle.userChoise.innerHTML = 'joueur : croix';
                 app.currentUser = true;
@@ -103,7 +103,7 @@ const iaCircle = {
 
             } else if (app.strokes[1][0] === 'croix') {
 
-                app.createCircle(...ia.case6);
+                app.createCircle(...iaCircle.case6);
                 app.strokes[1][2] = 'rond';
                 ia.userChoise.innerHTML = 'joueur : croix';
                 app.currentUser = true;
