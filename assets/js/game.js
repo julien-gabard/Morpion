@@ -160,7 +160,7 @@ const app = {
             }
         }
 
-        ia.init();
+        iaCircle.init();
     },
 
     gain: function(symbol, caseY, caseX) {
