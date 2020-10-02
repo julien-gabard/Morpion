@@ -58,6 +58,11 @@ const app = {
         }
 
         app.init();
+
+        // Réinitialise les proprietées du module ia_circle.js par defaults
+        iaCircle.firstShot = true;
+        iaCircle.firstCenter = false;
+        iaCircle.secondeShot = false;
     },
 
     drawingCanvas: function() {
