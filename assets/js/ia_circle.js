@@ -2,113 +2,77 @@ const iaCircle = {
 
     userChoise: document.getElementById('user'),
 
-    // Coordonées des cases (de 1 à 9)
-    case1: [83.33333333333333, 83.33333333333333, 166.66666666666666, 166.66666666666666],
-    case2: [83.33333333333333, 250, 166.66666666666666, 166.66666666666666],
-    case3: [83.33333333333333, 416.66666666666663, 166.66666666666666, 166.66666666666666],
-    case4: [250, 83.33333333333333, 166.66666666666666, 166.66666666666666],
-    case5: [250, 250, 166.66666666666666, 166.66666666666666],
-    case6: [250, 416.66666666666663, 166.66666666666666, 166.66666666666666],
-    case7: [416.66666666666663, 83.33333333333333, 166.66666666666666, 166.66666666666666],
-    case8: [416.66666666666663, 250, 166.66666666666666, 166.66666666666666],
-    case9: [416.66666666666663, 416.66666666666663, 166.66666666666666, 166.66666666666666],
-
-    // Déroulement du jeu
-    firstShot: true,
-    firstCenter: false,
-    secondeShot: false,
+    // Coordonées des cases de 1 à 9
+    gameBox: [
+        [83.33333333333333, 83.33333333333333, 166.66666666666666, 166.66666666666666],
+        [83.33333333333333, 250, 166.66666666666666, 166.66666666666666],
+        [83.33333333333333, 416.66666666666663, 166.66666666666666, 166.66666666666666],
+        [250, 83.33333333333333, 166.66666666666666, 166.66666666666666],
+        [250, 250, 166.66666666666666, 166.66666666666666],
+        [250, 416.66666666666663, 166.66666666666666, 166.66666666666666],
+        [416.66666666666663, 83.33333333333333, 166.66666666666666, 166.66666666666666],
+        [416.66666666666663, 250, 166.66666666666666, 166.66666666666666],
+        [416.66666666666663, 416.66666666666663, 166.66666666666666, 166.66666666666666],
+    ],
 
     init: function() {
-        console.log('ia.init OK');
-        iaCircle.launchFirstShots();
-        iaCircle.launchSecondeShot();
+        iaCircle.startOfIa();
     },
 
-    launchFirstShots: function() {
-        if (iaCircle.firstShot) {
-            if (app.strokes[0][0] === 'croix' || app.strokes[0][1] === 'croix' || app.strokes[0][2] === 'croix' ||
-             app.strokes[1][0] === 'croix' || app.strokes[1][2] === 'croix' || app.strokes[2][0] === 'croix' ||
-             app.strokes[2][1] === 'croix' || app.strokes[2][2] === 'croix') {
+    startOfIa: function() {
+        let randomNumber = Math.floor(Math.random() * iaCircle.gameBox.length);
 
-                app.createCircle(...iaCircle.case5);
-                app.strokes[1][1] = 'rond';
+        console.log(randomNumber);
+
+        if (!app.currentUser) {
+            
+            if (randomNumber === 0 && app.strokes[0][0] === false) {
+                app.createCircle(...iaCircle.gameBox[randomNumber]);
+                app.strokes[0][0] = 'rond';
                 iaCircle.userChoise.innerHTML = 'joueur : croix';
                 app.currentUser = true;
-                iaCircle.firstShot = false;
-                iaCircle.secondeShot = true;
-    
-            } else if (app.strokes[1][1] === 'croix') {
-
-                app.createCircle(...iaCircle.case3);
-                app.strokes[0][2] = 'rond';
-                iaCircle.userChoise.innerHTML = 'joueur : croix';
-                app.currentUser = true;
-                iaCircle.firstShot = false;
-                iaCircle.secondeShot = true;
-                iaCircle.firstCenter = true;
-    
-            }
-        }
-    },
-
-    launchSecondeShot: function() {
-        if (iaCircle.secondeShot && iaCircle.firstCenter) {
-            if (app.strokes[0][0] === 'croix') {
-
-                app.createCircle(...iaCircle.case9);
-                app.strokes[2][2] = 'rond';
-                iaCircle.userChoise.innerHTML = 'joueur : croix';
-                app.currentUser = true;
-                iaCircle.secondeShot = false;
-
-            } else if (app.strokes[0][1] === 'croix') {
-
-                app.createCircle(...iaCircle.case8);
-                app.strokes[2][1] = 'rond';
-                iaCircle.userChoise.innerHTML = 'joueur : croix';
-                app.currentUser = true;
-                iaCircle.secondeShot = false;
-
-            } else if (app.strokes[1][2] === 'croix') {
-
-                app.createCircle(...iaCircle.case4);
-                app.strokes[1][0] = 'rond';
-                iaCircle.userChoise.innerHTML = 'joueur : croix';
-                app.currentUser = true;
-                iaCircle.secondeShot = false;
-
-            } else if (app.strokes[2][2] === 'croix') {
-
-                app.createCircle(...iaCircle.case1);
-                app.strokes[1][0] = 'rond';
-                iaCircle.userChoise.innerHTML = 'joueur : croix';
-                app.currentUser = true;
-                iaCircle.secondeShot = false;
-
-            } else if (app.strokes[2][1] === 'croix') {
-
-                app.createCircle(...iaCircle.case2);
+            } else if (randomNumber === 1 && app.strokes[0][1] === false) {
+                app.createCircle(...iaCircle.gameBox[randomNumber]);
                 app.strokes[0][1] = 'rond';
                 iaCircle.userChoise.innerHTML = 'joueur : croix';
                 app.currentUser = true;
-                iaCircle.secondeShot = false;
-
-            } else if (app.strokes[2][0] === 'croix') {
-
-                app.createCircle(...iaCircle.case9);
-                app.strokes[2][2] = 'rond';
+            } else if (randomNumber === 2 && app.strokes[0][2] === false) {
+                app.createCircle(...iaCircle.gameBox[randomNumber]);
+                app.strokes[0][2] = 'rond';
                 iaCircle.userChoise.innerHTML = 'joueur : croix';
                 app.currentUser = true;
-                iaCircle.secondeShot = false;
-
-            } else if (app.strokes[1][0] === 'croix') {
-
-                app.createCircle(...iaCircle.case6);
+            } else if (randomNumber === 3 && app.strokes[1][0] === false) {
+                app.createCircle(...iaCircle.gameBox[randomNumber]);
+                app.strokes[1][0] = 'rond';
+                iaCircle.userChoise.innerHTML = 'joueur : croix';
+                app.currentUser = true;
+            } else if (randomNumber === 4 && app.strokes[1][1] === false) {
+                app.createCircle(...iaCircle.gameBox[randomNumber]);
+                app.strokes[1][1] = 'rond';
+                iaCircle.userChoise.innerHTML = 'joueur : croix';
+                app.currentUser = true;
+            } else if (randomNumber === 5 && app.strokes[1][2] === false) {
+                app.createCircle(...iaCircle.gameBox[randomNumber]);
                 app.strokes[1][2] = 'rond';
                 iaCircle.userChoise.innerHTML = 'joueur : croix';
                 app.currentUser = true;
-                iaCircle.secondeShot = false;
-
+            } else if (randomNumber === 6 && app.strokes[2][0] === false) {
+                app.createCircle(...iaCircle.gameBox[randomNumber]);
+                app.strokes[2][0] = 'rond';
+                iaCircle.userChoise.innerHTML = 'joueur : croix';
+                app.currentUser = true;
+            } else if (randomNumber === 7 && app.strokes[2][1] === false) {
+                app.createCircle(...iaCircle.gameBox[randomNumber]);
+                app.strokes[2][1] = 'rond';
+                iaCircle.userChoise.innerHTML = 'joueur : croix';
+                app.currentUser = true;
+            } else if (randomNumber === 8 && app.strokes[2][2] === false) {
+                app.createCircle(...iaCircle.gameBox[randomNumber]);
+                app.strokes[2][2] = 'rond';
+                iaCircle.userChoise.innerHTML = 'joueur : croix';
+                app.currentUser = true;
+            } else  {
+                iaCircle.startOfIa();
             }
         }
     },

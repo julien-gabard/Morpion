@@ -182,18 +182,16 @@ const app = {
                         app.game = false;
                     }
 
-                } else {
+                } else if (app.end()) {
 
-                    if (app.end()) {
-                        app.game = false;
-                        document.getElementById('user').innerHTML = 'Egalite';
-                    }
+                    app.game = false;
+                    document.getElementById('user').innerHTML = 'Egalite';
+                }
+
+                if (app.selectIa) {
+                    iaCircle.init();
                 }
             }
-        }
-
-        if (app.selectIa) {
-            iaCircle.init();
         }
     },
 
