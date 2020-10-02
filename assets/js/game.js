@@ -10,6 +10,7 @@ const app = {
     game: true,
     currentUser: true,
     strokes: [],
+    selectIa: false,
 
     init: function() {
         app.drawingCanvas();
@@ -17,12 +18,38 @@ const app = {
 
         let buttonReset = document.getElementById('reset');
         buttonReset.addEventListener('click', app.reset);
+
+        let buttonOnePlayer = document.getElementById('onePlayer');
+        buttonOnePlayer.addEventListener('click', app.changeNumberPlayer);
+
+        let buttonTwoPlayers = document.getElementById('twoPlayers');
+        buttonTwoPlayers.addEventListener('click', app.changeNumberPlayer);
+    },
+
+    changeNumberPlayer: function() {
+        let selectButtonOnePlayer = document.getElementById('onePlayer');
+        let selectButtonTwoPlayers = document.getElementById('twoPlayers');
+
+        if (!app.selectIa) {
+
+            selectButtonOnePlayer.classList.add('select');
+            selectButtonTwoPlayers.classList.remove('select');
+
+        } else {
+
+            selectButtonTwoPlayers.classList.add('select');
+            selectButtonOnePlayer.classList.remove('select');
+
+        }
+
+        app.selectIa = !app.selectIa;
     },
 
     reset: function() {
         app.ctx.clearRect(0, 0, app.widthCanvas, app.heightCanvas);
         app.strokes = [];
         app.game = true;
+        app.currentUser = true;
 
         if (app.currentUser) {
             document.getElementById('user').innerHTML = 'Joueur : croix';
@@ -160,7 +187,9 @@ const app = {
             }
         }
 
-        iaCircle.init();
+        if (app.selectIa) {
+            iaCircle.init();
+        }
     },
 
     gain: function(symbol, caseY, caseX) {
