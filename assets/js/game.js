@@ -11,6 +11,7 @@ const app = {
     currentUser: true,
     strokes: [],
     selectIa: false,
+    symbol: '',
 
     init: function() {
         app.drawingCanvas();
@@ -156,20 +157,27 @@ const app = {
 
                     app.createCross(middleY, middleX, widthColumn, heightLine);
                     app.strokes[caseY][caseX] = 'croix';
-                    var symbol = 'croix';
+                    app.symbol = 'croix';
                     document.getElementById('user').innerHTML = 'Joueur : rond';
 
-                } else {
+                } else if (!app.selectIa) {
 
                     app.createCircle(middleY, middleX, widthColumn, heightLine);
                     app.strokes[caseY][caseX] = 'rond';
-                    var symbol = 'rond';
+                    app.symbol = 'rond';
                     document.getElementById('user').innerHTML = 'Joueur : croix';
+
+                } else if (app.selectIa) {
+
+                    iaCircle.init();
+                    document.getElementById('user').innerHTML = 'Joueur : croix';
+                    app.symbol = 'rond';
+
                 }
 
                 app.currentUser = !app.currentUser;
 
-                if (app.gain(symbol, caseY, caseX)) {
+                if (app.gain(app.symbol, caseY, caseX)) {
 
                     if (app.currentUser) {
 
@@ -182,14 +190,12 @@ const app = {
                         app.game = false;
                     }
 
-                } else if (app.end()) {
-
-                    app.game = false;
-                    document.getElementById('user').innerHTML = 'Egalite';
                 }
+                
+                if (app.end()) {
 
-                if (app.selectIa) {
-                    iaCircle.init();
+                    document.getElementById('user').innerHTML = 'Egalite';
+                    app.game = false;
                 }
             }
         }
@@ -201,7 +207,7 @@ const app = {
         // Vérification sur les lignes de l'axe X
         for (let i =0; i < app.numberColumn; i++) {
 
-            if (app.strokes[caseY][i] == symbol) {
+            if (app.strokes[caseY][i] === symbol) {
 
                 numberSymbol ++;
 
@@ -220,7 +226,7 @@ const app = {
 
         for (let i = 0; i < app.numberLine; i++) {
 
-            if (app.strokes[i][caseX] == symbol) {
+            if (app.strokes[i][caseX] === symbol) {
 
                 numberSymbol ++;
 
@@ -246,7 +252,7 @@ const app = {
 
         while (x < app.numberColumn && y < app.numberLine) {
 
-            if (app.strokes[y][x] == symbol) {
+            if (app.strokes[y][x] === symbol) {
     
                 numberSymbol ++;
                 
@@ -276,7 +282,7 @@ const app = {
 
         while (x >= 0 && y < app.numberLine) {
 
-            if (app.strokes[y][x] == symbol) {
+            if (app.strokes[y][x] === symbol) {
     
                 numberSymbol ++;
     
@@ -300,7 +306,7 @@ const app = {
 
             for (let a = 0; a < app.numberColumn; a++) {
     
-                if (app.strokes[i][a] == false) {
+                if (app.strokes[i][a] === false) {
                     return false;
                 }
             }
