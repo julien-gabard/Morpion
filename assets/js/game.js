@@ -11,7 +11,6 @@ const app = {
     currentUser: true,
     strokes: [],
     selectIa: false,
-    symbol: '',
 
     init: function() {
         app.drawingCanvas();
@@ -149,6 +148,8 @@ const app = {
         let middleX = caseX * widthColumn + widthColumn / 2;
         let middleY = caseY * heightLine + heightLine / 2;
 
+        let symbol;
+
         if (app.game) {
             
             if (!app.strokes[caseY][caseX]) {
@@ -157,21 +158,21 @@ const app = {
 
                     app.createCross(middleY, middleX, widthColumn, heightLine);
                     app.strokes[caseY][caseX] = 'croix';
-                    app.symbol = 'croix';
+                    symbol = 'croix';
                     document.getElementById('user').innerHTML = 'Joueur : rond';
 
                 } else if (!app.selectIa) {
 
                     app.createCircle(middleY, middleX, widthColumn, heightLine);
                     app.strokes[caseY][caseX] = 'rond';
-                    app.symbol = 'rond';
+                    symbol = 'rond';
                     document.getElementById('user').innerHTML = 'Joueur : croix';
 
                 } else if (app.selectIa) {
 
                     iaCircle.init();
                     document.getElementById('user').innerHTML = 'Joueur : croix';
-                    app.symbol = 'rond';
+                    symbol = 'rond';
 
                 }
 
