@@ -19,26 +19,20 @@ const app = {
         let buttonReset = document.getElementById('reset');
         buttonReset.addEventListener('click', app.reset);
 
-        let buttonOnePlayer = document.getElementById('onePlayer');
+        let buttonOnePlayer = document.getElementById('activeIa');
         buttonOnePlayer.addEventListener('click', app.changeNumberPlayer);
-
-        let buttonTwoPlayers = document.getElementById('twoPlayers');
-        buttonTwoPlayers.addEventListener('click', app.changeNumberPlayer);
     },
 
     changeNumberPlayer: function() {
-        let selectButtonOnePlayer = document.getElementById('onePlayer');
-        let selectButtonTwoPlayers = document.getElementById('twoPlayers');
+        let selectButtonIa = document.getElementById('activeIa');
 
         if (!app.selectIa) {
 
-            selectButtonOnePlayer.classList.add('select');
-            selectButtonTwoPlayers.classList.remove('select');
+            selectButtonIa.classList.add('select');
 
         } else {
 
-            selectButtonTwoPlayers.classList.add('select');
-            selectButtonOnePlayer.classList.remove('select');
+            selectButtonIa.classList.remove('select');
 
         }
 
