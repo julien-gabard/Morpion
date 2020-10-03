@@ -38,11 +38,11 @@ body {
 }
 
 .boardGame:hover {
-    color: rgba(154, 255, 163, 0.5);
+    color: rgba(154, 255, 163, 0.7);
 }
 
 .select {
-    color: rgba(154, 255, 163, 0.5);
+    color: rgba(154, 255, 163, 0.7);
 }
 
 .separate {
