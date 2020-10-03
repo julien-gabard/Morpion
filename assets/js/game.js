@@ -170,15 +170,22 @@ const app = {
 
                 } else if (app.selectIa) {
 
+                    // Using the fil ia_circle.js
                     iaCircle.init();
-                    document.getElementById('user').innerHTML = 'Joueur : croix';
                     symbol = 'rond';
+                    document.getElementById('user').innerHTML = 'Joueur : croix';
 
                 }
 
                 app.currentUser = !app.currentUser;
 
-                if (app.gain(app.symbol, caseY, caseX)) {
+                if (app.end()) {
+
+                    document.getElementById('user').innerHTML = 'Egalite';
+                    app.game = false;
+                }
+
+                if (app.gain(symbol, caseY, caseX)) {
 
                     if (app.currentUser) {
 
@@ -191,12 +198,6 @@ const app = {
                         app.game = false;
                     }
 
-                }
-                
-                if (app.end()) {
-
-                    document.getElementById('user').innerHTML = 'Egalite';
-                    app.game = false;
                 }
             }
         }

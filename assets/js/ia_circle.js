@@ -29,8 +29,6 @@ const iaCircle = {
     startOfIa: function() {
         let randomNumber = Math.floor(Math.random() * iaCircle.gameBox.length);
 
-        console.log(randomNumber);
-
         if (!app.currentUser && app.game) {
             
             if (randomNumber === 0 && app.strokes[0][0] === false) {
