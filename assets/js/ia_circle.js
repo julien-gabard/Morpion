@@ -1,5 +1,5 @@
 const iaCircle = {
-    
+
     // Coordonées des cases de 1 à 9
     gameBox: [
         [83.33333333333333, 83.33333333333333, 166.66666666666666, 166.66666666666666],
@@ -13,12 +13,13 @@ const iaCircle = {
         [416.66666666666663, 416.66666666666663, 166.66666666666666, 166.66666666666666],
     ],
 
-    check: true,
-
     init: function() {
         iaCircle.startOfIa();
     },
 
+    /**
+     * TODO
+     */
     checkTwoSymbol: function() {
         if (app.strokes[0][0] === 'croix' && app.strokes[0][1] === 'croix') {
             
