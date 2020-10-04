@@ -162,6 +162,8 @@ const app = {
                     // Using the file ia_circle.js
                     iaCircle.init();
                     symbol = 'rond';
+                    caseY = iaCircle.iaCaseY;
+                    caseX = iaCircle.iaCaseX;
                     document.getElementById('user').innerHTML = 'Joueur : croix';
 
                 }
@@ -173,7 +175,7 @@ const app = {
                     document.getElementById('user').innerHTML = 'Egalite';
                     app.game = false;
                 }
-
+                
                 if (app.gain(symbol, caseY, caseX)) {
 
                     if (app.currentUser) {

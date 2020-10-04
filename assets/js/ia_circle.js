@@ -13,6 +13,9 @@ const iaCircle = {
         [416.66666666666663, 416.66666666666663, 166.66666666666666, 166.66666666666666],
     ],
 
+    iaCaseY: '',
+    iaCaseX: '',
+
     init: function() {
         iaCircle.startOfIa();
     },
@@ -33,46 +36,64 @@ const iaCircle = {
 
             app.createCircle(...iaCircle.gameBox[randomNumber]);
             app.strokes[0][0] = 'rond';
+            iaCircle.iaCaseY = 0;
+            iaCircle.iaCaseX = 0;
 
         } else if (randomNumber === 1 && app.strokes[0][1] === false) {
 
             app.createCircle(...iaCircle.gameBox[randomNumber]);
             app.strokes[0][1] = 'rond';
+            iaCircle.iaCaseY = 0;
+            iaCircle.iaCaseX = 1;
 
         } else if (randomNumber === 2 && app.strokes[0][2] === false) {
 
             app.createCircle(...iaCircle.gameBox[randomNumber]);
             app.strokes[0][2] = 'rond';
+            iaCircle.iaCaseY = 0;
+            iaCircle.iaCaseX = 2;
 
         } else if (randomNumber === 3 && app.strokes[1][0] === false) {
 
             app.createCircle(...iaCircle.gameBox[randomNumber]);
             app.strokes[1][0] = 'rond';
+            iaCircle.iaCaseY = 1;
+            iaCircle.iaCaseX = 0;
 
         } else if (randomNumber === 4 && app.strokes[1][1] === false) {
 
             app.createCircle(...iaCircle.gameBox[randomNumber]);
             app.strokes[1][1] = 'rond';
+            iaCircle.iaCaseY = 1;
+            iaCircle.iaCaseX = 1;
 
         } else if (randomNumber === 5 && app.strokes[1][2] === false) {
 
             app.createCircle(...iaCircle.gameBox[randomNumber]);
             app.strokes[1][2] = 'rond';
+            iaCircle.iaCaseY = 1;
+            iaCircle.iaCaseX = 2;
 
         } else if (randomNumber === 6 && app.strokes[2][0] === false) {
 
             app.createCircle(...iaCircle.gameBox[randomNumber]);
             app.strokes[2][0] = 'rond';
+            iaCircle.iaCaseY = 2;
+            iaCircle.iaCaseX = 0;
 
         } else if (randomNumber === 7 && app.strokes[2][1] === false) {
 
             app.createCircle(...iaCircle.gameBox[randomNumber]);
             app.strokes[2][1] = 'rond';
+            iaCircle.iaCaseY = 2;
+            iaCircle.iaCaseX = 1;
 
         } else if (randomNumber === 8 && app.strokes[2][2] === false) {
 
             app.createCircle(...iaCircle.gameBox[randomNumber]);
             app.strokes[2][2] = 'rond';
+            iaCircle.iaCaseY = 2;
+            iaCircle.iaCaseX = 2;
 
         } else {
             iaCircle.startOfIa();
