@@ -28,57 +28,54 @@ const iaCircle = {
 
     startOfIa: function() {
         let randomNumber = Math.floor(Math.random() * iaCircle.gameBox.length);
-
-        if (!app.currentUser && app.game) {
             
-            if (randomNumber === 0 && app.strokes[0][0] === false) {
+        if (randomNumber === 0 && app.strokes[0][0] === false) {
 
-                app.createCircle(...iaCircle.gameBox[randomNumber]);
-                app.strokes[0][0] = 'rond';
+            app.createCircle(...iaCircle.gameBox[randomNumber]);
+            app.strokes[0][0] = 'rond';
 
-            } else if (randomNumber === 1 && app.strokes[0][1] === false) {
+        } else if (randomNumber === 1 && app.strokes[0][1] === false) {
 
-                app.createCircle(...iaCircle.gameBox[randomNumber]);
-                app.strokes[0][1] = 'rond';
+            app.createCircle(...iaCircle.gameBox[randomNumber]);
+            app.strokes[0][1] = 'rond';
 
-            } else if (randomNumber === 2 && app.strokes[0][2] === false) {
+        } else if (randomNumber === 2 && app.strokes[0][2] === false) {
 
-                app.createCircle(...iaCircle.gameBox[randomNumber]);
-                app.strokes[0][2] = 'rond';
+            app.createCircle(...iaCircle.gameBox[randomNumber]);
+            app.strokes[0][2] = 'rond';
 
-            } else if (randomNumber === 3 && app.strokes[1][0] === false) {
+        } else if (randomNumber === 3 && app.strokes[1][0] === false) {
 
-                app.createCircle(...iaCircle.gameBox[randomNumber]);
-                app.strokes[1][0] = 'rond';
+            app.createCircle(...iaCircle.gameBox[randomNumber]);
+            app.strokes[1][0] = 'rond';
 
-            } else if (randomNumber === 4 && app.strokes[1][1] === false) {
+        } else if (randomNumber === 4 && app.strokes[1][1] === false) {
 
-                app.createCircle(...iaCircle.gameBox[randomNumber]);
-                app.strokes[1][1] = 'rond';
+            app.createCircle(...iaCircle.gameBox[randomNumber]);
+            app.strokes[1][1] = 'rond';
 
-            } else if (randomNumber === 5 && app.strokes[1][2] === false) {
+        } else if (randomNumber === 5 && app.strokes[1][2] === false) {
 
-                app.createCircle(...iaCircle.gameBox[randomNumber]);
-                app.strokes[1][2] = 'rond';
+            app.createCircle(...iaCircle.gameBox[randomNumber]);
+            app.strokes[1][2] = 'rond';
 
-            } else if (randomNumber === 6 && app.strokes[2][0] === false) {
+        } else if (randomNumber === 6 && app.strokes[2][0] === false) {
 
-                app.createCircle(...iaCircle.gameBox[randomNumber]);
-                app.strokes[2][0] = 'rond';
+            app.createCircle(...iaCircle.gameBox[randomNumber]);
+            app.strokes[2][0] = 'rond';
 
-            } else if (randomNumber === 7 && app.strokes[2][1] === false) {
+        } else if (randomNumber === 7 && app.strokes[2][1] === false) {
 
-                app.createCircle(...iaCircle.gameBox[randomNumber]);
-                app.strokes[2][1] = 'rond';
+            app.createCircle(...iaCircle.gameBox[randomNumber]);
+            app.strokes[2][1] = 'rond';
 
-            } else if (randomNumber === 8 && app.strokes[2][2] === false) {
+        } else if (randomNumber === 8 && app.strokes[2][2] === false) {
 
-                app.createCircle(...iaCircle.gameBox[randomNumber]);
-                app.strokes[2][2] = 'rond';
+            app.createCircle(...iaCircle.gameBox[randomNumber]);
+            app.strokes[2][2] = 'rond';
 
-            } else {
-                iaCircle.startOfIa();
-            }
+        } else {
+            iaCircle.startOfIa();
         }
     },
 }
