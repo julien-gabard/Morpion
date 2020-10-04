@@ -20,10 +20,10 @@ const app = {
         buttonReset.addEventListener('click', app.reset);
 
         let buttonOnePlayer = document.getElementById('activeIa');
-        buttonOnePlayer.addEventListener('click', app.changeNumberPlayer);
+        buttonOnePlayer.addEventListener('click', app.activeButtonIa);
     },
 
-    changeNumberPlayer: function() {
+    activeButtonIa: function() {
         let selectButtonIa = document.getElementById('activeIa');
 
         if (!app.selectIa) {
@@ -52,18 +52,13 @@ const app = {
         }
 
         app.init();
-
-        // Réinitialise les proprietées du module ia_circle.js par defaults
-        iaCircle.firstShot = true;
-        iaCircle.firstCenter = false;
-        iaCircle.secondeShot = false;
     },
 
     drawingCanvas: function() {
         const widthColumn = app.widthCanvas / app.numberColumn;
         const heightLine = app.heightCanvas / app.numberLine;
 
-        // Remplissage de la grille
+        // Fill the grid
         for (let i = 0; i < app.numberLine; i++) {
             for (let a = 0; a < app.numberColumn; a++) {
                 app.strokes.push([]);
@@ -71,19 +66,19 @@ const app = {
             }
         }
 
-        // Création de la grille
+        // Creating the grid
         app.ctx.beginPath();
         app.ctx.lineWidth = 10;
         app.ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
 
-        // Création des lignes
+        // Creation of lines
         for (let i = 0; i < app.numberLine - 1; i++) {
             app.ctx.moveTo(0, (i + 1) * (heightLine));
             app.ctx.lineTo(app.widthCanvas, (i + 1) * (heightLine));
             app.ctx.stroke();
         }
 
-        // Création des cases
+        // Creation of boxes
         for (let i = 0; i < app.numberColumn - 1; i++) {
             app.ctx.moveTo((i + 1) * (widthColumn), 0);
             app.ctx.lineTo((i + 1) * (widthColumn), app.heightCanvas);
@@ -200,7 +195,7 @@ const app = {
     gain: function(symbol, caseY, caseX) {
         let numberSymbol = 0;
 
-        // Vérification sur les lignes de l'axe X
+        // Checking on the lines of the X axis
         for (let i =0; i < app.numberColumn; i++) {
 
             if (app.strokes[caseY][i] === symbol) {
@@ -218,8 +213,7 @@ const app = {
 
         numberSymbol = 0;
 
-        // Vérification sur les lignes de l'axe Y
-
+        // Check on Y axis lines
         for (let i = 0; i < app.numberLine; i++) {
 
             if (app.strokes[i][caseX] === symbol) {
@@ -237,7 +231,7 @@ const app = {
 
         numberSymbol = 0;
 
-        // Vérification diagonale descendante
+        // Descending diagonal check
         let x = caseX * 1;
         let y = caseY * 1;
 
@@ -266,7 +260,7 @@ const app = {
 
         numberSymbol = 0;
 
-        // Vérification diagonale asscendante
+        // Ascending diagonal check
         x = caseX * 1;
         y = caseY * 1;
 
