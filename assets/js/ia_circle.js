@@ -28,241 +28,176 @@ const iaCircle = {
         app.strokes[0][0] === 'rond' && app.strokes[0][1] === 'rond' && app.strokes[0][2] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[2]);
-            app.strokes[0][2] = 'rond';
-            iaCircle.iaCaseY = 0;
-            iaCircle.iaCaseX = 2;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(0, 2);
 
         // case 2 et 3
         } else if (app.strokes[0][1] === 'croix' && app.strokes[0][2] === 'croix' && app.strokes[0][0] !== 'rond' ||
         app.strokes[0][1] === 'rond' && app.strokes[0][2] === 'rond' && app.strokes[0][0] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[0]);
-            app.strokes[0][0] = 'rond';
-            iaCircle.iaCaseY = 0;
-            iaCircle.iaCaseX = 0;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(0, 0);
 
         // case 4 et 5
         } else if (app.strokes[1][0] === 'croix' && app.strokes[1][1] === 'croix' && app.strokes[1][2] !== 'rond' ||
         app.strokes[1][0] === 'rond' && app.strokes[1][1] === 'rond' && app.strokes[1][2] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[5]);
-            app.strokes[1][2] = 'rond';
-            iaCircle.iaCaseY = 1;
-            iaCircle.iaCaseX = 2;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(1, 2);
 
         // case 5 et 6
         } else if (app.strokes[1][1] === 'croix' && app.strokes[1][2] === 'croix' && app.strokes[1][0] !== 'rond' ||
         app.strokes[1][1] === 'rond' && app.strokes[1][2] === 'rond' && app.strokes[1][0] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[3]);
-            app.strokes[1][0] = 'rond';
-            iaCircle.iaCaseY = 1;
-            iaCircle.iaCaseX = 0;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(1, 0);
 
         // case 7 et 8
         } else if (app.strokes[2][0] === 'croix' && app.strokes[2][1] === 'croix' && app.strokes[2][2] !== 'rond' ||
         app.strokes[2][0] === 'rond' && app.strokes[2][1] === 'rond' && app.strokes[2][2] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[8]);
-            app.strokes[2][2] = 'rond';
-            iaCircle.iaCaseY = 2;
-            iaCircle.iaCaseX = 2;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(2, 2);
 
         // case 8 et 9
         } else if (app.strokes[2][1] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[2][0] !== 'rond' ||
         app.strokes[2][1] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[2][0] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[6]);
-            app.strokes[2][0] = 'rond';
-            iaCircle.iaCaseY = 2;
-            iaCircle.iaCaseX = 0;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(2, 0);
 
         // case 1 et 4
         } else if (app.strokes[0][0] === 'croix' && app.strokes[1][0] === 'croix' && app.strokes[2][0] !== 'rond' ||
         app.strokes[0][0] === 'rond' && app.strokes[1][0] === 'rond' && app.strokes[2][0] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[6]);
-            app.strokes[2][0] = 'rond';
-            iaCircle.iaCaseY = 2;
-            iaCircle.iaCaseX = 0;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(2, 0);
 
         // case 4 et 7
         } else if (app.strokes[1][0] === 'croix' && app.strokes[2][0] === 'croix' && app.strokes[0][0] !== 'rond' ||
         app.strokes[1][0] === 'rond' && app.strokes[2][0] === 'rond' && app.strokes[0][0] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[0]);
-            app.strokes[0][0] = 'rond';
-            iaCircle.iaCaseY = 0;
-            iaCircle.iaCaseX = 0;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(0, 0);
 
         // case 2 et 5
         } else if (app.strokes[0][1] === 'croix' && app.strokes[1][1] === 'croix' && app.strokes[2][1] !== 'rond' ||
         app.strokes[0][1] === 'rond' && app.strokes[1][1] === 'rond' && app.strokes[2][1] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[7]);
-            app.strokes[2][1] = 'rond';
-            iaCircle.iaCaseY = 2;
-            iaCircle.iaCaseX = 1;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(2, 1);
 
         // case 5 et 8
         } else if (app.strokes[1][1] === 'croix' && app.strokes[2][1] === 'croix' && app.strokes[0][1] !== 'rond' ||
         app.strokes[1][1] === 'rond' && app.strokes[2][1] === 'rond' && app.strokes[0][1] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[1]);
-            app.strokes[0][1] = 'rond';
-            iaCircle.iaCaseY = 0;
-            iaCircle.iaCaseX = 1;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(0, 1);
             
         // case 3 et 6
         } else if (app.strokes[0][2] === 'croix' && app.strokes[1][2] === 'croix' && app.strokes[2][2] !== 'rond' ||
         app.strokes[0][2] === 'rond' && app.strokes[1][2] === 'rond' && app.strokes[2][2] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[8]);
-            app.strokes[2][2] = 'rond';
-            iaCircle.iaCaseY = 2;
-            iaCircle.iaCaseX = 2;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(2, 2);
 
         // case 6 et 9
         } else if (app.strokes[1][2] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[0][2] !== 'rond' ||
         app.strokes[1][2] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[0][2] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[2]);
-            app.strokes[0][2] = 'rond';
-            iaCircle.iaCaseY = 0;
-            iaCircle.iaCaseX = 2;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(0, 2);
 
         // case 1 et 5
         } else if (app.strokes[0][0] === 'croix' && app.strokes[1][1] === 'croix' && app.strokes[2][2] !== 'rond' ||
         app.strokes[0][0] === 'rond' && app.strokes[1][1] === 'rond' && app.strokes[2][2] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[8]);
-            app.strokes[2][2] = 'rond';
-            iaCircle.iaCaseY = 2;
-            iaCircle.iaCaseX = 2;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(2, 2);
 
         // case 5 et 9
         } else if (app.strokes[1][1] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[0][0] !== 'rond' ||
         app.strokes[1][1] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[0][0] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[0]);
-            app.strokes[0][0] = 'rond';
-            iaCircle.iaCaseY = 0;
-            iaCircle.iaCaseX = 0;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(0, 0);
 
         // case 3 et 5
         } else if (app.strokes[0][2] === 'croix' && app.strokes[1][1] === 'croix' && app.strokes[2][0] !== 'rond' ||
         app.strokes[0][2] === 'rond' && app.strokes[1][1] === 'rond' && app.strokes[2][0] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[6]);
-            app.strokes[2][0] = 'rond';
-            iaCircle.iaCaseY = 2;
-            iaCircle.iaCaseX = 0;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(2, 0);
 
         // case 5 et 7
         } else if (app.strokes[1][1] === 'croix' && app.strokes[2][0] === 'croix' && app.strokes[0][2] !== 'rond' ||
         app.strokes[1][1] === 'rond' && app.strokes[2][0] === 'rond' && app.strokes[0][2] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[2]);
-            app.strokes[0][2] = 'rond';
-            iaCircle.iaCaseY = 0;
-            iaCircle.iaCaseX = 2;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(0, 2);
 
         // case 1 et 3
         } else if (app.strokes[0][1] === 'croix' && app.strokes[0][2] === 'croix' && app.strokes[0][1] !== 'rond' ||
         app.strokes[0][1] === 'rond' && app.strokes[0][2] === 'rond' && app.strokes[0][1] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[1]);
-            app.strokes[0][1] = 'rond';
-            iaCircle.iaCaseY = 0;
-            iaCircle.iaCaseX = 1;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(0, 1);
 
         // case 4 et 6
         } else if (app.strokes[1][0] === 'croix' && app.strokes[1][2] === 'croix' && app.strokes[1][1] !== 'rond' ||
         app.strokes[1][0] === 'rond' && app.strokes[1][2] === 'rond' && app.strokes[1][1] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[4]);
-            app.strokes[1][1] = 'rond';
-            iaCircle.iaCaseY = 1;
-            iaCircle.iaCaseX = 1;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(1, 1);
 
         // case 7 et 9
         } else if (app.strokes[2][0] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[2][1] !== 'rond' ||
         app.strokes[2][0] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[2][1] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[7]);
-            app.strokes[2][1] = 'rond';
-            iaCircle.iaCaseY = 2;
-            iaCircle.iaCaseX = 1;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(2, 1);
 
         // case 1 et 7
         } else if (app.strokes[0][0] === 'croix' && app.strokes[2][0] === 'croix' && app.strokes[1][0] !== 'rond' ||
         app.strokes[0][0] === 'rond' && app.strokes[2][0] === 'rond' && app.strokes[1][0] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[3]);
-            app.strokes[1][0] = 'rond';
-            iaCircle.iaCaseY = 1;
-            iaCircle.iaCaseX = 0;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(1, 0);
 
         // case 2 et 8
         } else if (app.strokes[0][1] === 'croix' && app.strokes[2][1] === 'croix' && app.strokes[1][1] !== 'rond' ||
         app.strokes[0][1] === 'rond' && app.strokes[2][1] === 'rond' && app.strokes[1][1] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[4]);
-            app.strokes[1][1] = 'rond';
-            iaCircle.iaCaseY = 1;
-            iaCircle.iaCaseX = 1;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(1, 1);
 
         // case 3 et 9
         } else if (app.strokes[0][2] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[1][2] !== 'rond' ||
         app.strokes[0][2] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[1][2] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[5]);
-            app.strokes[1][2] = 'rond';
-            iaCircle.iaCaseY = 1;
-            iaCircle.iaCaseX = 2;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(1, 2);
 
         // case 1 et 9
         } else if (app.strokes[0][0] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[1][1] !== 'rond' ||
         app.strokes[0][0] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[1][1] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[4]);
-            app.strokes[1][1] = 'rond';
-            iaCircle.iaCaseY = 1;
-            iaCircle.iaCaseX = 1;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(1, 1);
 
         // case 3 et 7
         } else if (app.strokes[0][2] === 'croix' && app.strokes[2][0] === 'croix' && app.strokes[1][1] !== 'rond' ||
         app.strokes[0][2] === 'rond' && app.strokes[2][0] === 'rond' && app.strokes[1][1] !== 'croix') {
 
             app.createCircle(...iaCircle.gameBox[4]);
-            app.strokes[1][1] = 'rond';
-            iaCircle.iaCaseY = 1;
-            iaCircle.iaCaseX = 1;
-            iaCircle.blockedPlayer = true;
+            iaCircle.circlePosition(1, 1);
         }
+    },
+
+    circlePosition: function(y, x) {
+        app.strokes[y][x] = 'rond';
+        iaCircle.iaCaseY = y;
+        iaCircle.iaCaseX = x;
+        iaCircle.blockedPlayer = true;
     },
 
     randomIa: function() {
