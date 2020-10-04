@@ -16,180 +16,337 @@ const iaCircle = {
     iaCaseY: '',
     iaCaseX: '',
     blockedPlayer: false,
+    placementVictory: false,
 
     init: function() {
+        iaCircle.checkTwoCircleVictory();
         iaCircle.checkTwoSymbol();
         iaCircle.randomIa();
     },
 
-    checkTwoSymbol: function() {
-        // case 1 et 2
-        if (app.strokes[0][0] === 'croix' && app.strokes[0][1] === 'croix' && app.strokes[0][2] !== 'rond' ||
-        app.strokes[0][0] === 'rond' && app.strokes[0][1] === 'rond' && app.strokes[0][2] !== 'croix') {
+    checkTwoCircleVictory: function() {
+        //case 1 et 2
+        if (app.strokes[0][0] === 'rond' && app.strokes[0][1] === 'rond' && app.strokes[0][2] === false) {
 
             app.createCircle(...iaCircle.gameBox[2]);
             iaCircle.circlePosition(0, 2);
+            iaCircle.placementVictory = true;
 
         // case 2 et 3
-        } else if (app.strokes[0][1] === 'croix' && app.strokes[0][2] === 'croix' && app.strokes[0][0] !== 'rond' ||
-        app.strokes[0][1] === 'rond' && app.strokes[0][2] === 'rond' && app.strokes[0][0] !== 'croix') {
+        } else if (app.strokes[0][1] === 'rond' && app.strokes[0][2] === 'rond' && app.strokes[0][0] === false) {
 
             app.createCircle(...iaCircle.gameBox[0]);
             iaCircle.circlePosition(0, 0);
+            iaCircle.placementVictory = true;
 
         // case 4 et 5
-        } else if (app.strokes[1][0] === 'croix' && app.strokes[1][1] === 'croix' && app.strokes[1][2] !== 'rond' ||
-        app.strokes[1][0] === 'rond' && app.strokes[1][1] === 'rond' && app.strokes[1][2] !== 'croix') {
+        } else if (app.strokes[1][0] === 'rond' && app.strokes[1][1] === 'rond' && app.strokes[1][2] === false) {
 
             app.createCircle(...iaCircle.gameBox[5]);
             iaCircle.circlePosition(1, 2);
+            iaCircle.placementVictory = true;
 
         // case 5 et 6
-        } else if (app.strokes[1][1] === 'croix' && app.strokes[1][2] === 'croix' && app.strokes[1][0] !== 'rond' ||
-        app.strokes[1][1] === 'rond' && app.strokes[1][2] === 'rond' && app.strokes[1][0] !== 'croix') {
+        } else if (app.strokes[1][1] === 'rond' && app.strokes[1][2] === 'rond' && app.strokes[1][0] === false) {
 
             app.createCircle(...iaCircle.gameBox[3]);
             iaCircle.circlePosition(1, 0);
+            iaCircle.placementVictory = true;
 
         // case 7 et 8
-        } else if (app.strokes[2][0] === 'croix' && app.strokes[2][1] === 'croix' && app.strokes[2][2] !== 'rond' ||
-        app.strokes[2][0] === 'rond' && app.strokes[2][1] === 'rond' && app.strokes[2][2] !== 'croix') {
+        } else if (app.strokes[2][0] === 'rond' && app.strokes[2][1] === 'rond' && app.strokes[2][2] === false) {
 
             app.createCircle(...iaCircle.gameBox[8]);
             iaCircle.circlePosition(2, 2);
+            iaCircle.placementVictory = true;
 
         // case 8 et 9
-        } else if (app.strokes[2][1] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[2][0] !== 'rond' ||
-        app.strokes[2][1] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[2][0] !== 'croix') {
+        } else if (app.strokes[2][1] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[2][0] === false) {
 
             app.createCircle(...iaCircle.gameBox[6]);
             iaCircle.circlePosition(2, 0);
+            iaCircle.placementVictory = true;
 
         // case 1 et 4
-        } else if (app.strokes[0][0] === 'croix' && app.strokes[1][0] === 'croix' && app.strokes[2][0] !== 'rond' ||
-        app.strokes[0][0] === 'rond' && app.strokes[1][0] === 'rond' && app.strokes[2][0] !== 'croix') {
+        } else if (app.strokes[0][0] === 'rond' && app.strokes[1][0] === 'rond' && app.strokes[2][0] === false) {
 
             app.createCircle(...iaCircle.gameBox[6]);
             iaCircle.circlePosition(2, 0);
+            iaCircle.placementVictory = true;
 
         // case 4 et 7
-        } else if (app.strokes[1][0] === 'croix' && app.strokes[2][0] === 'croix' && app.strokes[0][0] !== 'rond' ||
-        app.strokes[1][0] === 'rond' && app.strokes[2][0] === 'rond' && app.strokes[0][0] !== 'croix') {
+        } else if (app.strokes[1][0] === 'rond' && app.strokes[2][0] === 'rond' && app.strokes[0][0] === false) {
 
             app.createCircle(...iaCircle.gameBox[0]);
             iaCircle.circlePosition(0, 0);
+            iaCircle.placementVictory = true;
 
         // case 2 et 5
-        } else if (app.strokes[0][1] === 'croix' && app.strokes[1][1] === 'croix' && app.strokes[2][1] !== 'rond' ||
-        app.strokes[0][1] === 'rond' && app.strokes[1][1] === 'rond' && app.strokes[2][1] !== 'croix') {
+        } else if (app.strokes[0][1] === 'rond' && app.strokes[1][1] === 'rond' && app.strokes[2][1] === false) {
 
             app.createCircle(...iaCircle.gameBox[7]);
             iaCircle.circlePosition(2, 1);
+            iaCircle.placementVictory = true;
 
         // case 5 et 8
-        } else if (app.strokes[1][1] === 'croix' && app.strokes[2][1] === 'croix' && app.strokes[0][1] !== 'rond' ||
-        app.strokes[1][1] === 'rond' && app.strokes[2][1] === 'rond' && app.strokes[0][1] !== 'croix') {
+        } else if (app.strokes[1][1] === 'rond' && app.strokes[2][1] === 'rond' && app.strokes[0][1] === false) {
 
             app.createCircle(...iaCircle.gameBox[1]);
             iaCircle.circlePosition(0, 1);
-            
+            iaCircle.placementVictory = true;
+
         // case 3 et 6
-        } else if (app.strokes[0][2] === 'croix' && app.strokes[1][2] === 'croix' && app.strokes[2][2] !== 'rond' ||
-        app.strokes[0][2] === 'rond' && app.strokes[1][2] === 'rond' && app.strokes[2][2] !== 'croix') {
+        } else if (app.strokes[0][2] === 'rond' && app.strokes[1][2] === 'rond' && app.strokes[2][2] === false) {
 
             app.createCircle(...iaCircle.gameBox[8]);
             iaCircle.circlePosition(2, 2);
+            iaCircle.placementVictory = true;
 
         // case 6 et 9
-        } else if (app.strokes[1][2] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[0][2] !== 'rond' ||
-        app.strokes[1][2] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[0][2] !== 'croix') {
+        } else if (app.strokes[1][2] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[0][2] === false) {
 
             app.createCircle(...iaCircle.gameBox[2]);
             iaCircle.circlePosition(0, 2);
+            iaCircle.placementVictory = true;
 
         // case 1 et 5
-        } else if (app.strokes[0][0] === 'croix' && app.strokes[1][1] === 'croix' && app.strokes[2][2] !== 'rond' ||
-        app.strokes[0][0] === 'rond' && app.strokes[1][1] === 'rond' && app.strokes[2][2] !== 'croix') {
+        } else if (app.strokes[0][0] === 'rond' && app.strokes[1][1] === 'rond' && app.strokes[2][2] === false) {
 
             app.createCircle(...iaCircle.gameBox[8]);
             iaCircle.circlePosition(2, 2);
+            iaCircle.placementVictory = true;
 
         // case 5 et 9
-        } else if (app.strokes[1][1] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[0][0] !== 'rond' ||
-        app.strokes[1][1] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[0][0] !== 'croix') {
+        } else if (app.strokes[1][1] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[0][0] === false) {
 
             app.createCircle(...iaCircle.gameBox[0]);
             iaCircle.circlePosition(0, 0);
+            iaCircle.placementVictory = true;
 
         // case 3 et 5
-        } else if (app.strokes[0][2] === 'croix' && app.strokes[1][1] === 'croix' && app.strokes[2][0] !== 'rond' ||
-        app.strokes[0][2] === 'rond' && app.strokes[1][1] === 'rond' && app.strokes[2][0] !== 'croix') {
+        } else if (app.strokes[0][2] === 'rond' && app.strokes[1][1] === 'rond' && app.strokes[2][0] === false) {
 
             app.createCircle(...iaCircle.gameBox[6]);
             iaCircle.circlePosition(2, 0);
+            iaCircle.placementVictory = true;
 
         // case 5 et 7
-        } else if (app.strokes[1][1] === 'croix' && app.strokes[2][0] === 'croix' && app.strokes[0][2] !== 'rond' ||
-        app.strokes[1][1] === 'rond' && app.strokes[2][0] === 'rond' && app.strokes[0][2] !== 'croix') {
+        } else if (app.strokes[1][1] === 'rond' && app.strokes[2][0] === 'rond' && app.strokes[0][2] === false) {
 
             app.createCircle(...iaCircle.gameBox[2]);
             iaCircle.circlePosition(0, 2);
+            iaCircle.placementVictory = true;
 
         // case 1 et 3
-        } else if (app.strokes[0][1] === 'croix' && app.strokes[0][2] === 'croix' && app.strokes[0][1] !== 'rond' ||
-        app.strokes[0][1] === 'rond' && app.strokes[0][2] === 'rond' && app.strokes[0][1] !== 'croix') {
+        } else if (app.strokes[0][1] === 'rond' && app.strokes[0][2] === 'rond' && app.strokes[0][1] === false) {
 
             app.createCircle(...iaCircle.gameBox[1]);
             iaCircle.circlePosition(0, 1);
+            iaCircle.placementVictory = true;
 
         // case 4 et 6
-        } else if (app.strokes[1][0] === 'croix' && app.strokes[1][2] === 'croix' && app.strokes[1][1] !== 'rond' ||
-        app.strokes[1][0] === 'rond' && app.strokes[1][2] === 'rond' && app.strokes[1][1] !== 'croix') {
+        } else if (app.strokes[1][0] === 'rond' && app.strokes[1][2] === 'rond' && app.strokes[1][1] === false) {
 
             app.createCircle(...iaCircle.gameBox[4]);
             iaCircle.circlePosition(1, 1);
+            iaCircle.placementVictory = true;
 
         // case 7 et 9
-        } else if (app.strokes[2][0] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[2][1] !== 'rond' ||
-        app.strokes[2][0] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[2][1] !== 'croix') {
+        } else if (app.strokes[2][0] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[2][1] === false) {
 
             app.createCircle(...iaCircle.gameBox[7]);
             iaCircle.circlePosition(2, 1);
+            iaCircle.placementVictory = true;
 
         // case 1 et 7
-        } else if (app.strokes[0][0] === 'croix' && app.strokes[2][0] === 'croix' && app.strokes[1][0] !== 'rond' ||
-        app.strokes[0][0] === 'rond' && app.strokes[2][0] === 'rond' && app.strokes[1][0] !== 'croix') {
+        } else if (app.strokes[0][0] === 'rond' && app.strokes[2][0] === 'rond' && app.strokes[1][0] === false) {
 
             app.createCircle(...iaCircle.gameBox[3]);
             iaCircle.circlePosition(1, 0);
+            iaCircle.placementVictory = true;
 
         // case 2 et 8
-        } else if (app.strokes[0][1] === 'croix' && app.strokes[2][1] === 'croix' && app.strokes[1][1] !== 'rond' ||
-        app.strokes[0][1] === 'rond' && app.strokes[2][1] === 'rond' && app.strokes[1][1] !== 'croix') {
+        } else if (app.strokes[0][1] === 'rond' && app.strokes[2][1] === 'rond' && app.strokes[1][1] === false) {
 
             app.createCircle(...iaCircle.gameBox[4]);
             iaCircle.circlePosition(1, 1);
+            iaCircle.placementVictory = true;
 
         // case 3 et 9
-        } else if (app.strokes[0][2] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[1][2] !== 'rond' ||
-        app.strokes[0][2] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[1][2] !== 'croix') {
+        } else if (app.strokes[0][2] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[1][2] === false) {
 
             app.createCircle(...iaCircle.gameBox[5]);
             iaCircle.circlePosition(1, 2);
+            iaCircle.placementVictory = true;
 
         // case 1 et 9
-        } else if (app.strokes[0][0] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[1][1] !== 'rond' ||
-        app.strokes[0][0] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[1][1] !== 'croix') {
+        } else if (app.strokes[0][0] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[1][1] === false) {
 
             app.createCircle(...iaCircle.gameBox[4]);
             iaCircle.circlePosition(1, 1);
+            iaCircle.placementVictory = true;
 
         // case 3 et 7
-        } else if (app.strokes[0][2] === 'croix' && app.strokes[2][0] === 'croix' && app.strokes[1][1] !== 'rond' ||
-        app.strokes[0][2] === 'rond' && app.strokes[2][0] === 'rond' && app.strokes[1][1] !== 'croix') {
+        } else if (app.strokes[0][2] === 'rond' && app.strokes[2][0] === 'rond' && app.strokes[1][1] === false) {
 
             app.createCircle(...iaCircle.gameBox[4]);
             iaCircle.circlePosition(1, 1);
+            iaCircle.placementVictory = true;
+
+        } else {
+            iaCircle.placementVictory = false;
+        }
+    },
+
+    checkTwoSymbol: function() {
+        if (!iaCircle.placementVictory) {
+            // case 1 et 2
+            if (app.strokes[0][0] === 'croix' && app.strokes[0][1] === 'croix' && app.strokes[0][2] === false) {
+
+                app.createCircle(...iaCircle.gameBox[2]);
+                iaCircle.circlePosition(0, 2);
+
+            // case 2 et 3
+            } else if (app.strokes[0][1] === 'croix' && app.strokes[0][2] === 'croix' && app.strokes[0][0] === false) {
+
+                app.createCircle(...iaCircle.gameBox[0]);
+                iaCircle.circlePosition(0, 0);
+
+            // case 4 et 5
+            } else if (app.strokes[1][0] === 'croix' && app.strokes[1][1] === 'croix' && app.strokes[1][2] === false) {
+
+                app.createCircle(...iaCircle.gameBox[5]);
+                iaCircle.circlePosition(1, 2);
+
+            // case 5 et 6
+            } else if (app.strokes[1][1] === 'croix' && app.strokes[1][2] === 'croix' && app.strokes[1][0] === false) {
+
+                app.createCircle(...iaCircle.gameBox[3]);
+                iaCircle.circlePosition(1, 0);
+
+            // case 7 et 8
+            } else if (app.strokes[2][0] === 'croix' && app.strokes[2][1] === 'croix' && app.strokes[2][2] === false) {
+
+                app.createCircle(...iaCircle.gameBox[8]);
+                iaCircle.circlePosition(2, 2);
+
+            // case 8 et 9
+            } else if (app.strokes[2][1] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[2][0] === false) {
+
+                app.createCircle(...iaCircle.gameBox[6]);
+                iaCircle.circlePosition(2, 0);
+
+            // case 1 et 4
+            } else if (app.strokes[0][0] === 'croix' && app.strokes[1][0] === 'croix' && app.strokes[2][0] === false) {
+
+                app.createCircle(...iaCircle.gameBox[6]);
+                iaCircle.circlePosition(2, 0);
+
+            // case 4 et 7
+            } else if (app.strokes[1][0] === 'croix' && app.strokes[2][0] === 'croix' && app.strokes[0][0] === false) {
+
+                app.createCircle(...iaCircle.gameBox[0]);
+                iaCircle.circlePosition(0, 0);
+
+            // case 2 et 5
+            } else if (app.strokes[0][1] === 'croix' && app.strokes[1][1] === 'croix' && app.strokes[2][1] === false) {
+
+                app.createCircle(...iaCircle.gameBox[7]);
+                iaCircle.circlePosition(2, 1);
+
+            // case 5 et 8
+            } else if (app.strokes[1][1] === 'croix' && app.strokes[2][1] === 'croix' && app.strokes[0][1] === false) {
+
+                app.createCircle(...iaCircle.gameBox[1]);
+                iaCircle.circlePosition(0, 1);
+                
+            // case 3 et 6
+            } else if (app.strokes[0][2] === 'croix' && app.strokes[1][2] === 'croix' && app.strokes[2][2] === false) {
+
+                app.createCircle(...iaCircle.gameBox[8]);
+                iaCircle.circlePosition(2, 2);
+
+            // case 6 et 9
+            } else if (app.strokes[1][2] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[0][2] === false) {
+
+                app.createCircle(...iaCircle.gameBox[2]);
+                iaCircle.circlePosition(0, 2);
+
+            // case 1 et 5
+            } else if (app.strokes[0][0] === 'croix' && app.strokes[1][1] === 'croix' && app.strokes[2][2] === false) {
+
+                app.createCircle(...iaCircle.gameBox[8]);
+                iaCircle.circlePosition(2, 2);
+
+            // case 5 et 9
+            } else if (app.strokes[1][1] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[0][0] === false) {
+
+                app.createCircle(...iaCircle.gameBox[0]);
+                iaCircle.circlePosition(0, 0);
+
+            // case 3 et 5
+            } else if (app.strokes[0][2] === 'croix' && app.strokes[1][1] === 'croix' && app.strokes[2][0] === false) {
+
+                app.createCircle(...iaCircle.gameBox[6]);
+                iaCircle.circlePosition(2, 0);
+
+            // case 5 et 7
+            } else if (app.strokes[1][1] === 'croix' && app.strokes[2][0] === 'croix' && app.strokes[0][2] === false) {
+
+                app.createCircle(...iaCircle.gameBox[2]);
+                iaCircle.circlePosition(0, 2);
+
+            // case 1 et 3
+            } else if (app.strokes[0][1] === 'croix' && app.strokes[0][2] === 'croix' && app.strokes[0][1] === false) {
+
+                app.createCircle(...iaCircle.gameBox[1]);
+                iaCircle.circlePosition(0, 1);
+
+            // case 4 et 6
+            } else if (app.strokes[1][0] === 'croix' && app.strokes[1][2] === 'croix' && app.strokes[1][1] === false) {
+
+                app.createCircle(...iaCircle.gameBox[4]);
+                iaCircle.circlePosition(1, 1);
+
+            // case 7 et 9
+            } else if (app.strokes[2][0] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[2][1] === false) {
+
+                app.createCircle(...iaCircle.gameBox[7]);
+                iaCircle.circlePosition(2, 1);
+
+            // case 1 et 7
+            } else if (app.strokes[0][0] === 'croix' && app.strokes[2][0] === 'croix' && app.strokes[1][0] === false) {
+
+                app.createCircle(...iaCircle.gameBox[3]);
+                iaCircle.circlePosition(1, 0);
+
+            // case 2 et 8
+            } else if (app.strokes[0][1] === 'croix' && app.strokes[2][1] === 'croix' && app.strokes[1][1] === false) {
+
+                app.createCircle(...iaCircle.gameBox[4]);
+                iaCircle.circlePosition(1, 1);
+
+            // case 3 et 9
+            } else if (app.strokes[0][2] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[1][2] === false) {
+
+                app.createCircle(...iaCircle.gameBox[5]);
+                iaCircle.circlePosition(1, 2);
+
+            // case 1 et 9
+            } else if (app.strokes[0][0] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[1][1] === false) {
+
+                app.createCircle(...iaCircle.gameBox[4]);
+                iaCircle.circlePosition(1, 1);
+
+            // case 3 et 7
+            } else if (app.strokes[0][2] === 'croix' && app.strokes[2][0] === 'croix' && app.strokes[1][1] === false) {
+
+                app.createCircle(...iaCircle.gameBox[4]);
+                iaCircle.circlePosition(1, 1);
+
+            } else {
+                iaCircle.blockedPlayer = false;
+            }
         }
     },
 
