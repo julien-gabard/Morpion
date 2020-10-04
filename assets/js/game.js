@@ -91,7 +91,7 @@ const app = {
     createCross: function(middleY, middleX, widthColumn, heightLine) {
         const ratioCross = 0.7;
         const thicknessCross = 10;
-        const colorCross = 'rgba(170, 170, 255, 0.4)';
+        const colorCross = 'rgba(170, 170, 255, 0.5)';
 
         app.ctx.beginPath();
         app.ctx.lineWidth = thicknessCross;
