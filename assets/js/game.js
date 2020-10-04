@@ -148,14 +148,14 @@ const app = {
                     app.createCross(middleY, middleX, widthColumn, heightLine);
                     app.strokes[caseY][caseX] = 'croix';
                     symbol = 'croix';
-                    document.getElementById('user').innerHTML = 'Joueur : rond';
+                    document.getElementById('user_info').innerHTML = 'Joueur : rond';
 
                 } else if (!app.selectIa) {
 
                     app.createCircle(middleY, middleX, widthColumn, heightLine);
                     app.strokes[caseY][caseX] = 'rond';
                     symbol = 'rond';
-                    document.getElementById('user').innerHTML = 'Joueur : croix';
+                    document.getElementById('user_info').innerHTML = 'Joueur : croix';
 
                 } else if (app.selectIa) {
 
@@ -164,14 +164,14 @@ const app = {
                     symbol = 'rond';
                     caseY = iaCircle.iaCaseY;
                     caseX = iaCircle.iaCaseX;
-                    document.getElementById('user').innerHTML = 'Joueur : croix';
+                    document.getElementById('user_info').innerHTML = 'Joueur : croix';
                 }
 
                 app.currentUser = !app.currentUser;
 
                 if (app.end()) {
 
-                    document.getElementById('user').innerHTML = 'Egalite';
+                    document.getElementById('user_info').innerHTML = 'Egalite';
                     app.game = false;
                 }
                 
@@ -179,12 +179,12 @@ const app = {
 
                     if (app.currentUser) {
 
-                        document.getElementById('user').innerHTML = 'Victoire du rond';
+                        document.getElementById('user_info').innerHTML = 'Victoire du rond';
                         app.game = false;
 
                     } else {
 
-                        document.getElementById('user').innerHTML = 'Victoire de la croix';
+                        document.getElementById('user_info').innerHTML = 'Victoire de la croix';
                         app.game = false;
                     }
 
