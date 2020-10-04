@@ -19,8 +19,8 @@ const app = {
         let buttonReset = document.getElementById('reset');
         buttonReset.addEventListener('click', app.reset);
 
-        let buttonOnePlayer = document.getElementById('activeIa');
-        buttonOnePlayer.addEventListener('click', app.activeButtonIa);
+        let buttonIa = document.getElementById('activeIa');
+        buttonIa.addEventListener('click', app.activeButtonIa);
     },
 
     activeButtonIa: function() {
