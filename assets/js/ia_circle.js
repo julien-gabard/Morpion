@@ -22,9 +22,6 @@ const iaCircle = {
         iaCircle.randomIa();
     },
 
-    /**
-     * TODO
-     */
     checkTwoSymbol: function() {
         // case 1 et 2
         if (app.strokes[0][0] === 'croix' && app.strokes[0][1] === 'croix' && app.strokes[0][2] !== 'rond') {
