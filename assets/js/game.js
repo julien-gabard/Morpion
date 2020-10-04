@@ -46,9 +46,9 @@ const app = {
         app.currentUser = true;
 
         if (app.currentUser) {
-            document.getElementById('user').innerHTML = 'Joueur : croix';
+            document.getElementById('user_info').innerHTML = 'Joueur : croix';
         } else {
-            document.getElementById('user').innerHTML = 'Joueur : rond';
+            document.getElementById('user_info').innerHTML = 'Joueur : rond';
         }
 
         app.init();
