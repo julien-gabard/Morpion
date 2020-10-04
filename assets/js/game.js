@@ -91,7 +91,7 @@ const app = {
     createCross: function(middleY, middleX, widthColumn, heightLine) {
         const ratioCross = 0.7;
         const thicknessCross = 10;
-        const colorCross = 'rgba(255, 255, 255, 0.3)';
+        const colorCross = 'rgba(170, 170, 255, 0.4)';
 
         app.ctx.beginPath();
         app.ctx.lineWidth = thicknessCross;
@@ -107,7 +107,7 @@ const app = {
     createCircle: function(middleY, middleX, widthColumn, heightLine) {
         const ratioCircle = 0.7;
         const thicknessCircle = 10;
-        const colorCircle = 'rgba(255, 255, 255, 0.4)';
+        const colorCircle = 'rgba(255, 170, 170, 0.6)';
         let rayCircle = widthColumn;
 
         if (widthColumn > heightLine) {
@@ -165,7 +165,6 @@ const app = {
                     caseY = iaCircle.iaCaseY;
                     caseX = iaCircle.iaCaseX;
                     document.getElementById('user').innerHTML = 'Joueur : croix';
-
                 }
 
                 app.currentUser = !app.currentUser;
