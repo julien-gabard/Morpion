@@ -44,6 +44,7 @@ const app = {
         app.strokes = [];
         app.game = true;
         app.currentUser = true;
+        iaCircle.blockedPlayer = false;
 
         if (app.currentUser) {
             document.getElementById('user_info').innerHTML = 'Joueur : croix';

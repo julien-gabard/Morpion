@@ -310,7 +310,7 @@ const iaCircle = {
                 iaCircle.iaCaseX = 2;
     
             } else {
-                iaCircle.startOfIa();
+                iaCircle.randomIa();
             }
         }
     },
