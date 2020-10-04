@@ -159,7 +159,7 @@ const app = {
 
                 } else if (app.selectIa) {
 
-                    // Using the fil ia_circle.js
+                    // Using the file ia_circle.js
                     iaCircle.init();
                     symbol = 'rond';
                     document.getElementById('user').innerHTML = 'Joueur : croix';
