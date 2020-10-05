@@ -164,10 +164,10 @@ const app = {
                 } else if (app.selectIa) {
 
                     // Using the file ia_circle.js
-                    iaCircle.init();
+                    ia.init();
                     symbol = 'rond';
-                    caseY = iaCircle.iaCaseY;
-                    caseX = iaCircle.iaCaseX;
+                    caseY = ia.iaCaseY;
+                    caseX = ia.iaCaseX;
                     document.getElementById('user_info').innerHTML = 'Joueur : croix';
                 }
 
