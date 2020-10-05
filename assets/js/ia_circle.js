@@ -138,7 +138,7 @@ const iaCircle = {
             iaCircle.placementVictory = true;
 
         // case 1 et 3
-        } else if (app.strokes[0][1] === 'rond' && app.strokes[0][2] === 'rond' && app.strokes[0][1] === false) {
+        } else if (app.strokes[0][0] === 'rond' && app.strokes[0][2] === 'rond' && app.strokes[0][1] === false) {
 
             app.createCircle(...iaCircle.gameBox[1]);
             iaCircle.circlePosition(0, 1);
@@ -297,7 +297,7 @@ const iaCircle = {
                 iaCircle.circlePosition(0, 2);
 
             // case 1 et 3
-            } else if (app.strokes[0][1] === 'croix' && app.strokes[0][2] === 'croix' && app.strokes[0][1] === false) {
+            } else if (app.strokes[0][0] === 'croix' && app.strokes[0][2] === 'croix' && app.strokes[0][1] === false) {
 
                 app.createCircle(...iaCircle.gameBox[1]);
                 iaCircle.circlePosition(0, 1);
