@@ -29,12 +29,12 @@ const ia = {
             ia.secondSymbol = 'croix';
         }
         
-        ia.checkTwoCircleVictory();
-        ia.checkTwoSymbol();
+        ia.checkVictory();
+        ia.blockUser();
         ia.randomIa();
     },
 
-    checkTwoCircleVictory: function() {
+    checkVictory: function() {
         //case 1 et 2
         if (app.strokes[0][0] === ia.firstSymbol && app.strokes[0][1] === ia.firstSymbol && app.strokes[0][2] === false) {
 
@@ -304,7 +304,7 @@ const ia = {
         }
     },
 
-    checkTwoSymbol: function() {
+    blockUser: function() {
         if (!ia.placementVictory) {
             // case 1 et 2
             if (app.strokes[0][0] === ia.secondSymbol && app.strokes[0][1] === ia.secondSymbol && app.strokes[0][2] === false) {
