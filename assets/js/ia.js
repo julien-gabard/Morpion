@@ -15,10 +15,20 @@ const ia = {
 
     iaCaseY: '',
     iaCaseX: '',
+    firstSymbol: '',
+    secondSymbol: '',
     blockedPlayer: false,
     placementVictory: false,
 
     init: function() {
+        if (app.currentUser) {
+            ia.firstSymbol = 'croix';
+            ia.secondSymbol = 'rond';
+        } else {
+            ia.firstSymbol = 'rond';
+            ia.secondSymbol = 'croix';
+        }
+        
         ia.checkTwoCircleVictory();
         ia.checkTwoSymbol();
         ia.randomIa();
@@ -26,168 +36,168 @@ const ia = {
 
     checkTwoCircleVictory: function() {
         //case 1 et 2
-        if (app.strokes[0][0] === 'rond' && app.strokes[0][1] === 'rond' && app.strokes[0][2] === false) {
+        if (app.strokes[0][0] === ia.firstSymbol && app.strokes[0][1] === ia.firstSymbol && app.strokes[0][2] === false) {
 
             app.createCircle(...ia.gameBox[2]);
             ia.circlePosition(0, 2);
             ia.placementVictory = true;
 
         // case 2 et 3
-        } else if (app.strokes[0][1] === 'rond' && app.strokes[0][2] === 'rond' && app.strokes[0][0] === false) {
+        } else if (app.strokes[0][1] === ia.firstSymbol && app.strokes[0][2] === ia.firstSymbol && app.strokes[0][0] === false) {
 
             app.createCircle(...ia.gameBox[0]);
             ia.circlePosition(0, 0);
             ia.placementVictory = true;
 
         // case 4 et 5
-        } else if (app.strokes[1][0] === 'rond' && app.strokes[1][1] === 'rond' && app.strokes[1][2] === false) {
+        } else if (app.strokes[1][0] === ia.firstSymbol && app.strokes[1][1] === ia.firstSymbol && app.strokes[1][2] === false) {
 
             app.createCircle(...ia.gameBox[5]);
             ia.circlePosition(1, 2);
             ia.placementVictory = true;
 
         // case 5 et 6
-        } else if (app.strokes[1][1] === 'rond' && app.strokes[1][2] === 'rond' && app.strokes[1][0] === false) {
+        } else if (app.strokes[1][1] === ia.firstSymbol && app.strokes[1][2] === ia.firstSymbol && app.strokes[1][0] === false) {
 
             app.createCircle(...ia.gameBox[3]);
             ia.circlePosition(1, 0);
             ia.placementVictory = true;
 
         // case 7 et 8
-        } else if (app.strokes[2][0] === 'rond' && app.strokes[2][1] === 'rond' && app.strokes[2][2] === false) {
+        } else if (app.strokes[2][0] === ia.firstSymbol && app.strokes[2][1] === ia.firstSymbol && app.strokes[2][2] === false) {
 
             app.createCircle(...ia.gameBox[8]);
             ia.circlePosition(2, 2);
             ia.placementVictory = true;
 
         // case 8 et 9
-        } else if (app.strokes[2][1] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[2][0] === false) {
+        } else if (app.strokes[2][1] === ia.firstSymbol && app.strokes[2][2] === ia.firstSymbol && app.strokes[2][0] === false) {
 
             app.createCircle(...ia.gameBox[6]);
             ia.circlePosition(2, 0);
             ia.placementVictory = true;
 
         // case 1 et 4
-        } else if (app.strokes[0][0] === 'rond' && app.strokes[1][0] === 'rond' && app.strokes[2][0] === false) {
+        } else if (app.strokes[0][0] === ia.firstSymbol && app.strokes[1][0] === ia.firstSymbol && app.strokes[2][0] === false) {
 
             app.createCircle(...ia.gameBox[6]);
             ia.circlePosition(2, 0);
             ia.placementVictory = true;
 
         // case 4 et 7
-        } else if (app.strokes[1][0] === 'rond' && app.strokes[2][0] === 'rond' && app.strokes[0][0] === false) {
+        } else if (app.strokes[1][0] === ia.firstSymbol && app.strokes[2][0] === ia.firstSymbol && app.strokes[0][0] === false) {
 
             app.createCircle(...ia.gameBox[0]);
             ia.circlePosition(0, 0);
             ia.placementVictory = true;
 
         // case 2 et 5
-        } else if (app.strokes[0][1] === 'rond' && app.strokes[1][1] === 'rond' && app.strokes[2][1] === false) {
+        } else if (app.strokes[0][1] === ia.firstSymbol && app.strokes[1][1] === ia.firstSymbol && app.strokes[2][1] === false) {
 
             app.createCircle(...ia.gameBox[7]);
             ia.circlePosition(2, 1);
             ia.placementVictory = true;
 
         // case 5 et 8
-        } else if (app.strokes[1][1] === 'rond' && app.strokes[2][1] === 'rond' && app.strokes[0][1] === false) {
+        } else if (app.strokes[1][1] === ia.firstSymbol && app.strokes[2][1] === ia.firstSymbol && app.strokes[0][1] === false) {
 
             app.createCircle(...ia.gameBox[1]);
             ia.circlePosition(0, 1);
             ia.placementVictory = true;
 
         // case 3 et 6
-        } else if (app.strokes[0][2] === 'rond' && app.strokes[1][2] === 'rond' && app.strokes[2][2] === false) {
+        } else if (app.strokes[0][2] === ia.firstSymbol && app.strokes[1][2] === ia.firstSymbol && app.strokes[2][2] === false) {
 
             app.createCircle(...ia.gameBox[8]);
             ia.circlePosition(2, 2);
             ia.placementVictory = true;
 
         // case 6 et 9
-        } else if (app.strokes[1][2] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[0][2] === false) {
+        } else if (app.strokes[1][2] === ia.firstSymbol && app.strokes[2][2] === ia.firstSymbol && app.strokes[0][2] === false) {
 
             app.createCircle(...ia.gameBox[2]);
             ia.circlePosition(0, 2);
             ia.placementVictory = true;
 
         // case 1 et 5
-        } else if (app.strokes[0][0] === 'rond' && app.strokes[1][1] === 'rond' && app.strokes[2][2] === false) {
+        } else if (app.strokes[0][0] === ia.firstSymbol && app.strokes[1][1] === ia.firstSymbol && app.strokes[2][2] === false) {
 
             app.createCircle(...ia.gameBox[8]);
             ia.circlePosition(2, 2);
             ia.placementVictory = true;
 
         // case 5 et 9
-        } else if (app.strokes[1][1] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[0][0] === false) {
+        } else if (app.strokes[1][1] === ia.firstSymbol && app.strokes[2][2] === ia.firstSymbol && app.strokes[0][0] === false) {
 
             app.createCircle(...ia.gameBox[0]);
             ia.circlePosition(0, 0);
             ia.placementVictory = true;
 
         // case 3 et 5
-        } else if (app.strokes[0][2] === 'rond' && app.strokes[1][1] === 'rond' && app.strokes[2][0] === false) {
+        } else if (app.strokes[0][2] === ia.firstSymbol && app.strokes[1][1] === ia.firstSymbol && app.strokes[2][0] === false) {
 
             app.createCircle(...ia.gameBox[6]);
             ia.circlePosition(2, 0);
             ia.placementVictory = true;
 
         // case 5 et 7
-        } else if (app.strokes[1][1] === 'rond' && app.strokes[2][0] === 'rond' && app.strokes[0][2] === false) {
+        } else if (app.strokes[1][1] === ia.firstSymbol && app.strokes[2][0] === ia.firstSymbol && app.strokes[0][2] === false) {
 
             app.createCircle(...ia.gameBox[2]);
             ia.circlePosition(0, 2);
             ia.placementVictory = true;
 
         // case 1 et 3
-        } else if (app.strokes[0][0] === 'rond' && app.strokes[0][2] === 'rond' && app.strokes[0][1] === false) {
+        } else if (app.strokes[0][0] === ia.firstSymbol && app.strokes[0][2] === ia.firstSymbol && app.strokes[0][1] === false) {
 
             app.createCircle(...ia.gameBox[1]);
             ia.circlePosition(0, 1);
             ia.placementVictory = true;
 
         // case 4 et 6
-        } else if (app.strokes[1][0] === 'rond' && app.strokes[1][2] === 'rond' && app.strokes[1][1] === false) {
+        } else if (app.strokes[1][0] === ia.firstSymbol && app.strokes[1][2] === ia.firstSymbol && app.strokes[1][1] === false) {
 
             app.createCircle(...ia.gameBox[4]);
             ia.circlePosition(1, 1);
             ia.placementVictory = true;
 
         // case 7 et 9
-        } else if (app.strokes[2][0] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[2][1] === false) {
+        } else if (app.strokes[2][0] === ia.firstSymbol && app.strokes[2][2] === ia.firstSymbol && app.strokes[2][1] === false) {
 
             app.createCircle(...ia.gameBox[7]);
             ia.circlePosition(2, 1);
             ia.placementVictory = true;
 
         // case 1 et 7
-        } else if (app.strokes[0][0] === 'rond' && app.strokes[2][0] === 'rond' && app.strokes[1][0] === false) {
+        } else if (app.strokes[0][0] === ia.firstSymbol && app.strokes[2][0] === ia.firstSymbol && app.strokes[1][0] === false) {
 
             app.createCircle(...ia.gameBox[3]);
             ia.circlePosition(1, 0);
             ia.placementVictory = true;
 
         // case 2 et 8
-        } else if (app.strokes[0][1] === 'rond' && app.strokes[2][1] === 'rond' && app.strokes[1][1] === false) {
+        } else if (app.strokes[0][1] === ia.firstSymbol && app.strokes[2][1] === ia.firstSymbol && app.strokes[1][1] === false) {
 
             app.createCircle(...ia.gameBox[4]);
             ia.circlePosition(1, 1);
             ia.placementVictory = true;
 
         // case 3 et 9
-        } else if (app.strokes[0][2] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[1][2] === false) {
+        } else if (app.strokes[0][2] === ia.firstSymbol && app.strokes[2][2] === ia.firstSymbol && app.strokes[1][2] === false) {
 
             app.createCircle(...ia.gameBox[5]);
             ia.circlePosition(1, 2);
             ia.placementVictory = true;
 
         // case 1 et 9
-        } else if (app.strokes[0][0] === 'rond' && app.strokes[2][2] === 'rond' && app.strokes[1][1] === false) {
+        } else if (app.strokes[0][0] === ia.firstSymbol && app.strokes[2][2] === ia.firstSymbol && app.strokes[1][1] === false) {
 
             app.createCircle(...ia.gameBox[4]);
             ia.circlePosition(1, 1);
             ia.placementVictory = true;
 
         // case 3 et 7
-        } else if (app.strokes[0][2] === 'rond' && app.strokes[2][0] === 'rond' && app.strokes[1][1] === false) {
+        } else if (app.strokes[0][2] === ia.firstSymbol && app.strokes[2][0] === ia.firstSymbol && app.strokes[1][1] === false) {
 
             app.createCircle(...ia.gameBox[4]);
             ia.circlePosition(1, 1);
@@ -201,160 +211,177 @@ const ia = {
     checkTwoSymbol: function() {
         if (!ia.placementVictory) {
             // case 1 et 2
-            if (app.strokes[0][0] === 'croix' && app.strokes[0][1] === 'croix' && app.strokes[0][2] === false) {
+            if (app.strokes[0][0] === ia.secondSymbol && app.strokes[0][1] === ia.secondSymbol && app.strokes[0][2] === false) {
 
                 app.createCircle(...ia.gameBox[2]);
                 ia.circlePosition(0, 2);
+                ia.blockedPlayer = true;
 
             // case 2 et 3
-            } else if (app.strokes[0][1] === 'croix' && app.strokes[0][2] === 'croix' && app.strokes[0][0] === false) {
+            } else if (app.strokes[0][1] === ia.secondSymbol && app.strokes[0][2] === ia.secondSymbol && app.strokes[0][0] === false) {
 
                 app.createCircle(...ia.gameBox[0]);
                 ia.circlePosition(0, 0);
+                ia.blockedPlayer = true;
 
             // case 4 et 5
-            } else if (app.strokes[1][0] === 'croix' && app.strokes[1][1] === 'croix' && app.strokes[1][2] === false) {
+            } else if (app.strokes[1][0] === ia.secondSymbol && app.strokes[1][1] === ia.secondSymbol && app.strokes[1][2] === false) {
 
                 app.createCircle(...ia.gameBox[5]);
                 ia.circlePosition(1, 2);
+                ia.blockedPlayer = true;
 
             // case 5 et 6
-            } else if (app.strokes[1][1] === 'croix' && app.strokes[1][2] === 'croix' && app.strokes[1][0] === false) {
+            } else if (app.strokes[1][1] === ia.secondSymbol && app.strokes[1][2] === ia.secondSymbol && app.strokes[1][0] === false) {
 
                 app.createCircle(...ia.gameBox[3]);
                 ia.circlePosition(1, 0);
+                ia.blockedPlayer = true;
 
             // case 7 et 8
-            } else if (app.strokes[2][0] === 'croix' && app.strokes[2][1] === 'croix' && app.strokes[2][2] === false) {
+            } else if (app.strokes[2][0] === ia.secondSymbol && app.strokes[2][1] === ia.secondSymbol && app.strokes[2][2] === false) {
 
                 app.createCircle(...ia.gameBox[8]);
                 ia.circlePosition(2, 2);
+                ia.blockedPlayer = true;
 
             // case 8 et 9
-            } else if (app.strokes[2][1] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[2][0] === false) {
+            } else if (app.strokes[2][1] === ia.secondSymbol && app.strokes[2][2] === ia.secondSymbol && app.strokes[2][0] === false) {
 
                 app.createCircle(...ia.gameBox[6]);
                 ia.circlePosition(2, 0);
+                ia.blockedPlayer = true;
 
             // case 1 et 4
-            } else if (app.strokes[0][0] === 'croix' && app.strokes[1][0] === 'croix' && app.strokes[2][0] === false) {
+            } else if (app.strokes[0][0] === ia.secondSymbol && app.strokes[1][0] === ia.secondSymbol && app.strokes[2][0] === false) {
 
                 app.createCircle(...ia.gameBox[6]);
                 ia.circlePosition(2, 0);
+                ia.blockedPlayer = true;
 
             // case 4 et 7
-            } else if (app.strokes[1][0] === 'croix' && app.strokes[2][0] === 'croix' && app.strokes[0][0] === false) {
+            } else if (app.strokes[1][0] === ia.secondSymbol && app.strokes[2][0] === ia.secondSymbol && app.strokes[0][0] === false) {
 
                 app.createCircle(...ia.gameBox[0]);
                 ia.circlePosition(0, 0);
+                ia.blockedPlayer = true;
 
             // case 2 et 5
-            } else if (app.strokes[0][1] === 'croix' && app.strokes[1][1] === 'croix' && app.strokes[2][1] === false) {
+            } else if (app.strokes[0][1] === ia.secondSymbol && app.strokes[1][1] === ia.secondSymbol && app.strokes[2][1] === false) {
 
                 app.createCircle(...ia.gameBox[7]);
                 ia.circlePosition(2, 1);
+                ia.blockedPlayer = true;
 
             // case 5 et 8
-            } else if (app.strokes[1][1] === 'croix' && app.strokes[2][1] === 'croix' && app.strokes[0][1] === false) {
+            } else if (app.strokes[1][1] === ia.secondSymbol && app.strokes[2][1] === ia.secondSymbol && app.strokes[0][1] === false) {
 
                 app.createCircle(...ia.gameBox[1]);
                 ia.circlePosition(0, 1);
+                ia.blockedPlayer = true;
                 
             // case 3 et 6
-            } else if (app.strokes[0][2] === 'croix' && app.strokes[1][2] === 'croix' && app.strokes[2][2] === false) {
+            } else if (app.strokes[0][2] === ia.secondSymbol && app.strokes[1][2] === ia.secondSymbol && app.strokes[2][2] === false) {
 
                 app.createCircle(...ia.gameBox[8]);
                 ia.circlePosition(2, 2);
+                ia.blockedPlayer = true;
 
             // case 6 et 9
-            } else if (app.strokes[1][2] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[0][2] === false) {
+            } else if (app.strokes[1][2] === ia.secondSymbol && app.strokes[2][2] === ia.secondSymbol && app.strokes[0][2] === false) {
 
                 app.createCircle(...ia.gameBox[2]);
                 ia.circlePosition(0, 2);
+                ia.blockedPlayer = true;
 
             // case 1 et 5
-            } else if (app.strokes[0][0] === 'croix' && app.strokes[1][1] === 'croix' && app.strokes[2][2] === false) {
+            } else if (app.strokes[0][0] === ia.secondSymbol && app.strokes[1][1] === ia.secondSymbol && app.strokes[2][2] === false) {
 
                 app.createCircle(...ia.gameBox[8]);
                 ia.circlePosition(2, 2);
+                ia.blockedPlayer = true;
 
             // case 5 et 9
-            } else if (app.strokes[1][1] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[0][0] === false) {
+            } else if (app.strokes[1][1] === ia.secondSymbol && app.strokes[2][2] === ia.secondSymbol && app.strokes[0][0] === false) {
 
                 app.createCircle(...ia.gameBox[0]);
                 ia.circlePosition(0, 0);
+                ia.blockedPlayer = true;
 
             // case 3 et 5
-            } else if (app.strokes[0][2] === 'croix' && app.strokes[1][1] === 'croix' && app.strokes[2][0] === false) {
+            } else if (app.strokes[0][2] === ia.secondSymbol && app.strokes[1][1] === ia.secondSymbol && app.strokes[2][0] === false) {
 
                 app.createCircle(...ia.gameBox[6]);
                 ia.circlePosition(2, 0);
+                ia.blockedPlayer = true;
 
             // case 5 et 7
-            } else if (app.strokes[1][1] === 'croix' && app.strokes[2][0] === 'croix' && app.strokes[0][2] === false) {
+            } else if (app.strokes[1][1] === ia.secondSymbol && app.strokes[2][0] === ia.secondSymbol && app.strokes[0][2] === false) {
 
                 app.createCircle(...ia.gameBox[2]);
                 ia.circlePosition(0, 2);
+                ia.blockedPlayer = true;
 
             // case 1 et 3
-            } else if (app.strokes[0][0] === 'croix' && app.strokes[0][2] === 'croix' && app.strokes[0][1] === false) {
+            } else if (app.strokes[0][0] === ia.secondSymbol && app.strokes[0][2] === ia.secondSymbol && app.strokes[0][1] === false) {
 
                 app.createCircle(...ia.gameBox[1]);
                 ia.circlePosition(0, 1);
+                ia.blockedPlayer = true;
 
             // case 4 et 6
-            } else if (app.strokes[1][0] === 'croix' && app.strokes[1][2] === 'croix' && app.strokes[1][1] === false) {
+            } else if (app.strokes[1][0] === ia.secondSymbol && app.strokes[1][2] === ia.secondSymbol && app.strokes[1][1] === false) {
 
                 app.createCircle(...ia.gameBox[4]);
                 ia.circlePosition(1, 1);
+                ia.blockedPlayer = true;
 
             // case 7 et 9
-            } else if (app.strokes[2][0] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[2][1] === false) {
+            } else if (app.strokes[2][0] === ia.secondSymbol && app.strokes[2][2] === ia.secondSymbol && app.strokes[2][1] === false) {
 
                 app.createCircle(...ia.gameBox[7]);
                 ia.circlePosition(2, 1);
+                ia.blockedPlayer = true;
 
             // case 1 et 7
-            } else if (app.strokes[0][0] === 'croix' && app.strokes[2][0] === 'croix' && app.strokes[1][0] === false) {
+            } else if (app.strokes[0][0] === ia.secondSymbol && app.strokes[2][0] === ia.secondSymbol && app.strokes[1][0] === false) {
 
                 app.createCircle(...ia.gameBox[3]);
                 ia.circlePosition(1, 0);
+                ia.blockedPlayer = true;
 
             // case 2 et 8
-            } else if (app.strokes[0][1] === 'croix' && app.strokes[2][1] === 'croix' && app.strokes[1][1] === false) {
+            } else if (app.strokes[0][1] === ia.secondSymbol && app.strokes[2][1] === ia.secondSymbol && app.strokes[1][1] === false) {
 
                 app.createCircle(...ia.gameBox[4]);
                 ia.circlePosition(1, 1);
+                ia.blockedPlayer = true;
 
             // case 3 et 9
-            } else if (app.strokes[0][2] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[1][2] === false) {
+            } else if (app.strokes[0][2] === ia.secondSymbol && app.strokes[2][2] === ia.secondSymbol && app.strokes[1][2] === false) {
 
                 app.createCircle(...ia.gameBox[5]);
                 ia.circlePosition(1, 2);
+                ia.blockedPlayer = true;
 
             // case 1 et 9
-            } else if (app.strokes[0][0] === 'croix' && app.strokes[2][2] === 'croix' && app.strokes[1][1] === false) {
+            } else if (app.strokes[0][0] === ia.secondSymbol && app.strokes[2][2] === ia.secondSymbol && app.strokes[1][1] === false) {
 
                 app.createCircle(...ia.gameBox[4]);
                 ia.circlePosition(1, 1);
+                ia.blockedPlayer = true;
 
             // case 3 et 7
-            } else if (app.strokes[0][2] === 'croix' && app.strokes[2][0] === 'croix' && app.strokes[1][1] === false) {
+            } else if (app.strokes[0][2] === ia.secondSymbol && app.strokes[2][0] === ia.secondSymbol && app.strokes[1][1] === false) {
 
                 app.createCircle(...ia.gameBox[4]);
                 ia.circlePosition(1, 1);
+                ia.blockedPlayer = true;
 
             } else {
                 ia.blockedPlayer = false;
             }
         }
-    },
-
-    circlePosition: function(y, x) {
-        app.strokes[y][x] = 'rond';
-        ia.iaCaseY = y;
-        ia.iaCaseX = x;
-        ia.blockedPlayer = true;
     },
 
     randomIa: function() {
@@ -365,69 +392,57 @@ const ia = {
             if (randomNumber === 0 && app.strokes[0][0] === false) {
 
                 app.createCircle(...ia.gameBox[randomNumber]);
-                app.strokes[0][0] = 'rond';
-                ia.iaCaseY = 0;
-                ia.iaCaseX = 0;
+                ia.circlePosition(0, 0);
     
             } else if (randomNumber === 1 && app.strokes[0][1] === false) {
     
                 app.createCircle(...ia.gameBox[randomNumber]);
-                app.strokes[0][1] = 'rond';
-                ia.iaCaseY = 0;
-                ia.iaCaseX = 1;
+                ia.circlePosition(0, 1);
     
             } else if (randomNumber === 2 && app.strokes[0][2] === false) {
     
                 app.createCircle(...ia.gameBox[randomNumber]);
-                app.strokes[0][2] = 'rond';
-                ia.iaCaseY = 0;
-                ia.iaCaseX = 2;
+                ia.circlePosition(0, 2);
     
             } else if (randomNumber === 3 && app.strokes[1][0] === false) {
     
                 app.createCircle(...ia.gameBox[randomNumber]);
-                app.strokes[1][0] = 'rond';
-                ia.iaCaseY = 1;
-                ia.iaCaseX = 0;
+                ia.circlePosition(1, 0);
     
             } else if (randomNumber === 4 && app.strokes[1][1] === false) {
     
                 app.createCircle(...ia.gameBox[randomNumber]);
-                app.strokes[1][1] = 'rond';
-                ia.iaCaseY = 1;
-                ia.iaCaseX = 1;
+                ia.circlePosition(1, 1);
     
             } else if (randomNumber === 5 && app.strokes[1][2] === false) {
     
                 app.createCircle(...ia.gameBox[randomNumber]);
-                app.strokes[1][2] = 'rond';
-                ia.iaCaseY = 1;
-                ia.iaCaseX = 2;
+                ia.circlePosition(1, 2);
     
             } else if (randomNumber === 6 && app.strokes[2][0] === false) {
     
                 app.createCircle(...ia.gameBox[randomNumber]);
-                app.strokes[2][0] = 'rond';
-                ia.iaCaseY = 2;
-                ia.iaCaseX = 0;
+                ia.circlePosition(2, 0);
     
             } else if (randomNumber === 7 && app.strokes[2][1] === false) {
     
                 app.createCircle(...ia.gameBox[randomNumber]);
-                app.strokes[2][1] = 'rond';
-                ia.iaCaseY = 2;
-                ia.iaCaseX = 1;
+                ia.circlePosition(2, 1);
     
             } else if (randomNumber === 8 && app.strokes[2][2] === false) {
     
                 app.createCircle(...ia.gameBox[randomNumber]);
-                app.strokes[2][2] = 'rond';
-                ia.iaCaseY = 2;
-                ia.iaCaseX = 2;
+                ia.circlePosition(2, 2);
     
             } else {
                 ia.randomIa();
             }
         }
+    },
+
+    circlePosition: function(y, x) {
+        app.strokes[y][x] = ia.firstSymbol;
+        ia.iaCaseY = y;
+        ia.iaCaseX = x;
     },
 }
