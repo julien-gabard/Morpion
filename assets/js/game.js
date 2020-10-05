@@ -45,9 +45,10 @@ const app = {
         app.game = true;
         app.currentUser = true;
         
-        iaCircle.blockedPlayer = false;
-        iaCircle.iaCaseY = '';
-        iaCircle.iaCaseX = '';
+        // Reset owner of ia.js module
+        ia.blockedPlayer = false;
+        ia.iaCaseY = '';
+        ia.iaCaseX = '';
 
         if (app.currentUser) {
             document.getElementById('user_info').innerHTML = 'Joueur : croix';
