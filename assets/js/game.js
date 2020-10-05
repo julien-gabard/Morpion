@@ -47,6 +47,7 @@ const app = {
         
         // Reset owner of ia.js module
         ia.blockedPlayer = false;
+        ia.placementVictory = false;
         ia.iaCaseY = '';
         ia.iaCaseX = '';
 
