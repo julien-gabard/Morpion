@@ -163,9 +163,7 @@ const app = {
                     symbol = 'rond';
                     document.getElementById('user_info').innerHTML = 'Joueur : croix';
 
-                }
-                
-                if (app.selectIa) {
+                } else if (app.selectIa) {
 
                     // Using the file ia_circle.js
                     ia.init();
@@ -174,8 +172,9 @@ const app = {
                     caseX = ia.iaCaseX;
                     document.getElementById('user_info').innerHTML = 'Joueur : croix';
                 }
-
+                
                 app.currentUser = !app.currentUser;
+
 
                 if (app.end()) {
 
